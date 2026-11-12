@@ -2,7 +2,7 @@
 <html lang="ru" class="scroll-smooth">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, viewport-fit=cover">
   <meta name="robots" content="noindex, nofollow, noarchive, nosnippet">
   <meta name="googlebot" content="noindex, nofollow">
   <script>
@@ -39,7 +39,6 @@
       --text-secondary: #515154;
       --text-muted: #86868B;
       --accent-blue: #0071E3;
-      --accent-blue-hover: #0077ED;
       --font-system: -apple-system, BlinkMacSystemFont, "SF Pro Text", "SF Pro Display", "Helvetica Neue", Arial, sans-serif;
       --font-mono: "SF Mono", SFMono-Regular, Menlo, Monaco, Consolas, monospace;
     }
@@ -50,48 +49,58 @@
       -webkit-font-smoothing: antialiased;
       -moz-osx-font-smoothing: grayscale;
       line-height: 1.47059;
-      font-size: 17px;
+      font-size: 16px;
       overflow-x: hidden;
     }
 
-    /* Apple Frosted Glass Header */
+    /* Apple Frosted Glass Header (Mobile Optimized) */
     .apple-header {
       position: fixed;
       top: 0;
       left: 0;
       right: 0;
       z-index: 50;
-      background: rgba(255, 255, 255, 0.82);
+      background: rgba(255, 255, 255, 0.88);
       backdrop-filter: saturate(180%) blur(20px);
       -webkit-backdrop-filter: saturate(180%) blur(20px);
       border-bottom: 1px solid rgba(0, 0, 0, 0.08);
-      height: 52px;
+      height: 48px;
       display: flex;
       align-items: center;
+    }
+    @media (min-width: 768px) {
+      .apple-header {
+        height: 52px;
+      }
     }
     .header-inner {
       max-width: 1200px;
       margin: 0 auto;
       width: 100%;
-      padding: 0 24px;
+      padding: 0 16px;
       display: flex;
       justify-content: space-between;
       align-items: center;
     }
+    @media (min-width: 768px) {
+      .header-inner {
+        padding: 0 24px;
+      }
+    }
     .brand-wrap {
       display: flex;
       align-items: center;
-      gap: 14px;
+      gap: 10px;
       text-decoration: none;
     }
     .brand-logo {
-      height: 22px;
+      height: 20px;
       width: auto;
       display: block;
     }
     .brand-sep {
       width: 1px;
-      height: 16px;
+      height: 14px;
       background: var(--border-hairline);
     }
     .brand-title {
@@ -99,11 +108,18 @@
       font-weight: 600;
       color: var(--text-primary);
       letter-spacing: -0.01em;
+      white-space: nowrap;
     }
+    /* Nav links hidden on mobile, shown on desktop */
     .nav-links {
-      display: flex;
-      align-items: center;
-      gap: 20px;
+      display: none;
+    }
+    @media (min-width: 820px) {
+      .nav-links {
+        display: flex;
+        align-items: center;
+        gap: 20px;
+      }
     }
     .nav-link {
       font-size: 12px;
@@ -125,128 +141,182 @@
       border-radius: 980px;
       text-decoration: none;
       transition: all 0.15s ease;
+      white-space: nowrap;
     }
     .nav-btn-pdf:hover {
       background: #EBEBEF;
+    }
+    .mobile-header-right {
+      display: flex;
+      align-items: center;
+    }
+    @media (min-width: 820px) {
+      .mobile-header-right {
+        display: none;
+      }
     }
 
     /* Container */
     .container {
       max-width: 1200px;
       margin: 0 auto;
-      padding: 0 24px;
+      padding: 0 16px;
+    }
+    @media (min-width: 768px) {
+      .container {
+        padding: 0 24px;
+      }
     }
 
     /* Typography & Hierarchy */
     .eyebrow {
       font-family: var(--font-mono);
-      font-size: 12px;
+      font-size: 11px;
       font-weight: 500;
       color: var(--text-muted);
       letter-spacing: 0.04em;
       text-transform: uppercase;
-      margin-bottom: 12px;
+      margin-bottom: 8px;
     }
     .hero-title {
-      font-size: 48px;
+      font-size: 34px;
       font-weight: 600;
       letter-spacing: -0.025em;
-      line-height: 1.08349;
+      line-height: 1.12;
       color: var(--text-primary);
       margin-bottom: 12px;
     }
     @media (min-width: 768px) {
       .hero-title {
-        font-size: 64px;
+        font-size: 60px;
       }
     }
     .hero-subtitle {
-      font-size: 21px;
-      line-height: 1.42859;
+      font-size: 17px;
+      line-height: 1.45;
       color: var(--text-secondary);
       max-width: 760px;
       font-weight: 400;
-      margin-bottom: 32px;
+      margin-bottom: 24px;
+    }
+    @media (min-width: 768px) {
+      .hero-subtitle {
+        font-size: 20px;
+        margin-bottom: 32px;
+      }
     }
 
-    /* Apple Keynote Style Metrics Strip */
+    /* Metrics Strip */
     .metrics-strip {
       display: grid;
       grid-template-columns: repeat(2, 1fr);
-      gap: 16px;
-      margin: 40px 0;
+      gap: 10px;
+      margin: 28px 0;
     }
     @media (min-width: 768px) {
       .metrics-strip {
         grid-template-columns: repeat(4, 1fr);
+        gap: 16px;
+        margin: 40px 0;
       }
     }
     .metric-box {
       background: var(--bg-card);
       border: 1px solid var(--border-hairline);
       border-radius: 14px;
-      padding: 24px 20px;
+      padding: 16px 14px;
       text-align: left;
     }
+    @media (min-width: 768px) {
+      .metric-box {
+        padding: 24px 20px;
+      }
+    }
     .metric-val {
-      font-size: 32px;
+      font-size: 24px;
       font-weight: 600;
       letter-spacing: -0.02em;
       color: var(--text-primary);
       line-height: 1;
-      margin-bottom: 6px;
+      margin-bottom: 4px;
+    }
+    @media (min-width: 768px) {
+      .metric-val {
+        font-size: 32px;
+        margin-bottom: 6px;
+      }
     }
     .metric-label {
-      font-size: 13px;
+      font-size: 12px;
       color: var(--text-muted);
       font-weight: 400;
     }
 
     /* Action Buttons */
+    .btn-group {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+    @media (min-width: 480px) {
+      .btn-group {
+        flex-direction: row;
+      }
+    }
     .btn-primary {
       display: inline-flex;
       align-items: center;
+      justify-content: center;
       gap: 8px;
       background: var(--text-primary);
       color: #FFFFFF;
       font-size: 14px;
       font-weight: 500;
-      padding: 12px 22px;
+      padding: 12px 20px;
       border-radius: 980px;
       text-decoration: none;
       transition: background 0.15s ease, transform 0.1s ease;
     }
-    .btn-primary:hover {
-      background: #000000;
-      transform: scale(1.01);
+    .btn-primary:active {
+      transform: scale(0.98);
     }
     .btn-secondary {
       display: inline-flex;
       align-items: center;
+      justify-content: center;
       gap: 8px;
       background: var(--bg-card);
       color: var(--text-primary);
       border: 1px solid var(--border-hairline);
       font-size: 14px;
       font-weight: 500;
-      padding: 12px 22px;
+      padding: 12px 20px;
       border-radius: 980px;
       text-decoration: none;
       transition: background 0.15s ease;
     }
-    .btn-secondary:hover {
-      background: var(--bg-subtle);
-    }
 
-    /* Apple Segmented Control (Pill Tabs) */
+    /* Apple Horizontal Momentum Segmented Control (NO LINE BREAKS) */
+    .segmented-control-outer {
+      width: 100%;
+      overflow-x: auto;
+      -webkit-overflow-scrolling: touch;
+      scrollbar-width: none;
+      -ms-overflow-style: none;
+      margin-bottom: 24px;
+      padding: 2px 0 6px;
+    }
+    .segmented-control-outer::-webkit-scrollbar {
+      display: none;
+    }
     .segmented-control {
       display: inline-flex;
       background: rgba(0, 0, 0, 0.05);
       padding: 3px;
       border-radius: 980px;
       gap: 2px;
-      margin-bottom: 28px;
-      flex-wrap: wrap;
+      white-space: nowrap;
+      flex-wrap: nowrap;
     }
     .segment-btn {
       border: none;
@@ -257,10 +327,12 @@
       color: var(--text-secondary);
       border-radius: 980px;
       cursor: pointer;
+      flex-shrink: 0;
+      white-space: nowrap;
       transition: all 0.15s cubic-bezier(0.32, 0.72, 0, 1);
     }
-    .segment-btn:hover {
-      color: var(--text-primary);
+    .segment-btn:active {
+      transform: scale(0.96);
     }
     .segment-btn.active {
       background: #FFFFFF;
@@ -269,63 +341,71 @@
       box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08);
     }
 
-    /* Timeline Scrubber (Apple Style) */
+    /* Timeline Scrubber */
     .timeline-wrap {
       background: var(--bg-card);
       border: 1px solid var(--border-hairline);
       border-radius: 18px;
-      padding: 24px;
-      margin-bottom: 48px;
+      padding: 16px;
+      margin-bottom: 40px;
+    }
+    @media (min-width: 768px) {
+      .timeline-wrap {
+        padding: 24px;
+        margin-bottom: 48px;
+      }
     }
     .timeline-grid {
       display: grid;
       grid-template-columns: repeat(2, 1fr);
-      gap: 12px;
+      gap: 8px;
     }
     @media (min-width: 768px) {
       .timeline-grid {
         grid-template-columns: repeat(6, 1fr);
+        gap: 12px;
       }
     }
     .timeline-item {
       background: var(--bg-subtle);
       border: 1px solid var(--border-hairline);
-      border-radius: 12px;
-      padding: 14px 12px;
+      border-radius: 10px;
+      padding: 10px 10px;
       text-align: left;
       cursor: pointer;
       transition: all 0.15s ease;
       display: block;
       width: 100%;
     }
-    .timeline-item:hover {
-      background: #EBEBEF;
-      border-color: #D2D2D7;
+    .timeline-item:active {
+      transform: scale(0.97);
     }
     .timeline-tc {
       font-family: var(--font-mono);
-      font-size: 11px;
+      font-size: 10px;
       font-weight: 500;
       color: var(--text-muted);
-      margin-bottom: 4px;
+      margin-bottom: 2px;
     }
     .timeline-title {
-      font-size: 13px;
+      font-size: 12px;
       font-weight: 600;
       color: var(--text-primary);
       line-height: 1.25;
     }
 
-    /* Storyboard Card (Apple Presentation Style) */
+    /* Storyboard Card */
     .storyboard-grid {
       display: grid;
       grid-template-columns: 1fr;
-      gap: 32px;
-      margin-bottom: 64px;
+      gap: 24px;
+      margin-bottom: 56px;
     }
     @media (min-width: 900px) {
       .storyboard-grid {
         grid-template-columns: repeat(2, 1fr);
+        gap: 32px;
+        margin-bottom: 64px;
       }
     }
     .shot-card {
@@ -337,10 +417,6 @@
       flex-direction: column;
       transition: box-shadow 0.2s ease, border-color 0.2s ease;
     }
-    .shot-card:hover {
-      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.05);
-      border-color: #D2D2D7;
-    }
     .shot-media {
       position: relative;
       width: 100%;
@@ -348,6 +424,7 @@
       background: #E5E5EA;
       overflow: hidden;
       cursor: pointer;
+      -webkit-tap-highlight-color: transparent;
     }
     .shot-img {
       width: 100%;
@@ -356,60 +433,67 @@
       display: block;
       transition: transform 0.3s ease;
     }
-    .shot-media:hover .shot-img {
-      transform: scale(1.02);
+    .shot-media:active .shot-img {
+      transform: scale(0.98);
     }
     .shot-media-badge {
       position: absolute;
-      top: 12px;
-      left: 12px;
+      top: 10px;
+      left: 10px;
       display: flex;
       gap: 6px;
     }
     .badge-pill {
       font-family: var(--font-mono);
-      font-size: 11px;
+      font-size: 10px;
       font-weight: 500;
-      background: rgba(255, 255, 255, 0.88);
+      background: rgba(255, 255, 255, 0.9);
       backdrop-filter: blur(10px);
       -webkit-backdrop-filter: blur(10px);
       color: var(--text-primary);
-      padding: 3px 8px;
+      padding: 3px 7px;
       border-radius: 6px;
       border: 1px solid rgba(0, 0, 0, 0.06);
     }
     .shot-body {
-      padding: 24px;
+      padding: 18px 16px;
       display: flex;
       flex-direction: column;
       flex: 1;
     }
-    .shot-header {
-      display: flex;
-      justify-content: space-between;
-      align-items: baseline;
-      margin-bottom: 8px;
+    @media (min-width: 768px) {
+      .shot-body {
+        padding: 24px;
+      }
     }
     .shot-scene-tag {
-      font-size: 12px;
+      font-size: 11px;
       color: var(--text-muted);
       font-weight: 400;
+      margin-bottom: 4px;
+      display: block;
     }
     .shot-title {
-      font-size: 18px;
+      font-size: 17px;
       font-weight: 600;
       letter-spacing: -0.015em;
       color: var(--text-primary);
-      margin-bottom: 14px;
+      margin-bottom: 12px;
+    }
+    @media (min-width: 768px) {
+      .shot-title {
+        font-size: 18px;
+        margin-bottom: 14px;
+      }
     }
 
     /* Voiceover Box */
     .vo-quote-box {
       background: var(--bg-subtle);
       border-left: 3px solid var(--text-primary);
-      padding: 12px 16px;
+      padding: 10px 14px;
       border-radius: 0 8px 8px 0;
-      margin-bottom: 18px;
+      margin-bottom: 14px;
     }
     .vo-label {
       font-family: var(--font-mono);
@@ -418,47 +502,62 @@
       color: var(--text-muted);
       text-transform: uppercase;
       letter-spacing: 0.04em;
-      margin-bottom: 4px;
+      margin-bottom: 3px;
     }
     .vo-text {
-      font-size: 14px;
+      font-size: 13px;
       line-height: 1.45;
       color: var(--text-primary);
       font-style: italic;
     }
+    @media (min-width: 768px) {
+      .vo-text {
+        font-size: 14px;
+      }
+    }
 
-    /* Shot Direction Spec Rows */
+    /* Spec Rows */
     .spec-group {
       display: flex;
       flex-direction: column;
-      gap: 8px;
-      font-size: 13px;
+      gap: 6px;
+      font-size: 12px;
       line-height: 1.45;
       color: var(--text-secondary);
       border-top: 1px solid var(--border-subtle);
-      padding-top: 14px;
+      padding-top: 12px;
       margin-top: auto;
+    }
+    @media (min-width: 768px) {
+      .spec-group {
+        font-size: 13px;
+        gap: 8px;
+        padding-top: 14px;
+      }
     }
     .spec-row strong {
       color: var(--text-primary);
       font-weight: 600;
     }
 
-    /* Characters & Environments 3-Column Grid */
+    /* 3-Column Grid */
     .grid-3 {
       display: grid;
       grid-template-columns: 1fr;
-      gap: 24px;
-      margin-bottom: 64px;
+      gap: 16px;
+      margin-bottom: 56px;
     }
-    @media (min-width: 680px) {
+    @media (min-width: 600px) {
       .grid-3 {
         grid-template-columns: repeat(2, 1fr);
+        gap: 20px;
       }
     }
-    @media (min-width: 1024px) {
+    @media (min-width: 960px) {
       .grid-3 {
         grid-template-columns: repeat(3, 1fr);
+        gap: 24px;
+        margin-bottom: 64px;
       }
     }
     .asset-card {
@@ -468,10 +567,6 @@
       overflow: hidden;
       display: flex;
       flex-direction: column;
-      transition: box-shadow 0.2s ease;
-    }
-    .asset-card:hover {
-      box-shadow: 0 6px 18px rgba(0, 0, 0, 0.04);
     }
     .asset-media {
       position: relative;
@@ -480,37 +575,34 @@
       background: #F0F0F2;
       overflow: hidden;
       cursor: pointer;
+      -webkit-tap-highlight-color: transparent;
     }
     .asset-img {
       width: 100%;
       height: 100%;
       object-fit: cover;
       display: block;
-      transition: transform 0.25s ease;
-    }
-    .asset-media:hover .asset-img {
-      transform: scale(1.02);
     }
     .asset-body {
-      padding: 18px 20px;
+      padding: 16px 14px;
       display: flex;
       flex-direction: column;
       flex: 1;
     }
     .asset-tag {
       font-family: var(--font-mono);
-      font-size: 11px;
+      font-size: 10px;
       color: var(--text-muted);
-      margin-bottom: 4px;
+      margin-bottom: 2px;
     }
     .asset-title {
-      font-size: 16px;
+      font-size: 15px;
       font-weight: 600;
       color: var(--text-primary);
-      margin-bottom: 8px;
+      margin-bottom: 6px;
     }
     .asset-desc {
-      font-size: 13px;
+      font-size: 12px;
       color: var(--text-secondary);
       line-height: 1.45;
     }
@@ -519,13 +611,14 @@
     .film2-hero {
       background: var(--bg-card);
       border: 1px solid var(--border-hairline);
-      border-radius: 20px;
-      padding: 40px 36px;
-      margin-bottom: 64px;
+      border-radius: 18px;
+      padding: 24px 20px;
+      margin-bottom: 56px;
     }
     @media (min-width: 768px) {
       .film2-hero {
-        padding: 56px 48px;
+        padding: 48px;
+        margin-bottom: 64px;
       }
     }
 
@@ -533,32 +626,33 @@
     .download-list {
       display: grid;
       grid-template-columns: 1fr;
-      gap: 14px;
-      margin-bottom: 64px;
+      gap: 10px;
+      margin-bottom: 56px;
     }
     @media (min-width: 768px) {
       .download-list {
         grid-template-columns: repeat(2, 1fr);
+        gap: 14px;
+        margin-bottom: 64px;
       }
     }
     .download-item {
       background: var(--bg-card);
       border: 1px solid var(--border-hairline);
       border-radius: 14px;
-      padding: 18px 20px;
+      padding: 14px 16px;
       display: flex;
       align-items: center;
       justify-content: space-between;
       text-decoration: none;
-      transition: background 0.15s ease, border-color 0.15s ease;
+      transition: background 0.15s ease;
     }
-    .download-item:hover {
+    .download-item:active {
       background: var(--bg-subtle);
-      border-color: #D2D2D7;
     }
     .dl-icon-box {
-      width: 38px;
-      height: 38px;
+      width: 36px;
+      height: 36px;
       border-radius: 10px;
       background: var(--bg-subtle);
       border: 1px solid var(--border-hairline);
@@ -566,97 +660,205 @@
       align-items: center;
       justify-content: center;
       font-family: var(--font-mono);
-      font-size: 11px;
+      font-size: 10px;
       font-weight: 600;
       color: var(--text-secondary);
-      margin-right: 14px;
+      margin-right: 12px;
     }
     .dl-info {
       flex: 1;
     }
     .dl-title {
-      font-size: 14px;
+      font-size: 13px;
       font-weight: 600;
       color: var(--text-primary);
       margin-bottom: 2px;
     }
     .dl-meta {
-      font-size: 12px;
+      font-size: 11px;
       color: var(--text-muted);
     }
     .dl-arrow {
       font-size: 14px;
       color: var(--text-muted);
-      margin-left: 12px;
+      margin-left: 10px;
     }
 
-    /* Lightbox Modal */
+    /* ========================================================================= */
+    /* FULLY REDESIGNED APPLE MOBILE-FIRST LIGHTBOX (SWIPE & NEVER CROPPED)     */
+    /* ========================================================================= */
     .lightbox-overlay {
       position: fixed;
       inset: 0;
-      z-index: 100;
-      background: rgba(0, 0, 0, 0.88);
-      backdrop-filter: blur(20px);
-      -webkit-backdrop-filter: blur(20px);
+      z-index: 1000;
+      background: rgba(0, 0, 0, 0.94);
+      backdrop-filter: blur(25px);
+      -webkit-backdrop-filter: blur(25px);
       display: none;
+      flex-direction: column;
+      justify-content: space-between;
       align-items: center;
-      justify-content: center;
-      padding: 24px;
+      padding: 12px 14px 20px;
+      padding-top: max(12px, env(safe-area-inset-top));
+      padding-bottom: max(20px, env(safe-area-inset-bottom));
+      user-select: none;
+      touch-action: none;
+      height: 100%;
+      height: 100dvh;
     }
     .lightbox-overlay.active {
       display: flex;
     }
-    .lightbox-box {
-      max-width: 1100px;
+    .lightbox-topbar {
       width: 100%;
-      text-align: center;
+      max-width: 1000px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 6px 0;
+      z-index: 20;
+    }
+    .lightbox-counter {
+      font-family: var(--font-mono);
+      font-size: 13px;
+      color: #A1A1A6;
+      font-weight: 500;
+      letter-spacing: 0.02em;
+    }
+    .lightbox-close-btn {
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      background: rgba(255, 255, 255, 0.16);
+      border: none;
+      color: #FFFFFF;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 20px;
+      cursor: pointer;
+      -webkit-tap-highlight-color: transparent;
+      transition: background 0.15s ease, transform 0.1s ease;
+    }
+    .lightbox-close-btn:active {
+      background: rgba(255, 255, 255, 0.3);
+      transform: scale(0.94);
+    }
+    .lightbox-stage {
+      position: relative;
+      width: 100%;
+      max-width: 1000px;
+      flex: 1;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+      touch-action: none;
+    }
+    .lightbox-img-wrap {
+      width: 100%;
+      height: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+      pointer-events: none;
     }
     .lightbox-img {
-      max-height: 78vh;
+      max-width: 100%;
+      max-height: 55vh;
+      max-height: 55dvh;
       width: auto;
-      margin: 0 auto 16px;
-      border-radius: 12px;
-      box-shadow: 0 20px 60px rgba(0, 0, 0, 0.4);
+      height: auto;
+      object-fit: contain;
+      border-radius: 10px;
+      box-shadow: 0 16px 48px rgba(0, 0, 0, 0.6);
       display: block;
+      transition: opacity 0.22s cubic-bezier(0.16, 1, 0.3, 1), transform 0.22s cubic-bezier(0.16, 1, 0.3, 1);
+      pointer-events: auto;
     }
-    .lightbox-caption {
+    @media (min-width: 768px) {
+      .lightbox-img {
+        max-height: 72vh;
+        max-height: 72dvh;
+        border-radius: 14px;
+      }
+    }
+    @media (orientation: landscape) and (max-height: 500px) {
+      .lightbox-overlay {
+        padding: 6px 12px 8px;
+      }
+      .lightbox-img {
+        max-height: 68vh;
+        max-height: 68dvh;
+      }
+      .lightbox-title {
+        font-size: 13px;
+        margin-bottom: 2px;
+      }
+      .lightbox-sub {
+        font-size: 11px;
+      }
+    }
+    .lightbox-nav-btn {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 44px;
+      height: 44px;
+      border-radius: 50%;
+      background: rgba(0, 0, 0, 0.5);
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+      border: 1px solid rgba(255, 255, 255, 0.18);
       color: #FFFFFF;
-      font-size: 16px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      font-size: 24px;
+      line-height: 1;
+      z-index: 20;
+      -webkit-tap-highlight-color: transparent;
+      transition: background 0.15s ease, opacity 0.15s ease, transform 0.1s ease;
+    }
+    .lightbox-nav-btn:active {
+      background: rgba(255, 255, 255, 0.3);
+      transform: translateY(-50%) scale(0.92);
+    }
+    .lightbox-prev {
+      left: 6px;
+    }
+    .lightbox-next {
+      right: 6px;
+    }
+    .lightbox-bottom {
+      width: 100%;
+      max-width: 800px;
+      text-align: center;
+      padding-top: 10px;
+      z-index: 20;
+    }
+    .lightbox-title {
+      color: #FFFFFF;
+      font-size: 15px;
       font-weight: 600;
       margin-bottom: 4px;
     }
     .lightbox-sub {
       color: #A1A1A6;
-      font-size: 13px;
-      max-width: 680px;
+      font-size: 12px;
+      line-height: 1.4;
+      max-width: 600px;
       margin: 0 auto;
-    }
-    .lightbox-close {
-      position: absolute;
-      top: 20px;
-      right: 20px;
-      background: rgba(255, 255, 255, 0.15);
-      border: none;
-      color: #FFFFFF;
-      width: 36px;
-      height: 36px;
-      border-radius: 50%;
-      cursor: pointer;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 18px;
-    }
-    .lightbox-close:hover {
-      background: rgba(255, 255, 255, 0.25);
     }
 
     /* Footer */
     .apple-footer {
       border-top: 1px solid var(--border-hairline);
-      padding: 40px 0;
-      margin-top: 80px;
-      font-size: 12px;
+      padding: 32px 0;
+      margin-top: 64px;
+      font-size: 11px;
       color: var(--text-muted);
       text-align: center;
     }
@@ -664,15 +866,15 @@
       display: flex;
       align-items: center;
       justify-content: center;
-      gap: 12px;
-      margin-bottom: 12px;
+      gap: 10px;
+      margin-bottom: 8px;
     }
   </style>
 </head>
 <body>
 
   <!-- ========================================================================= -->
-  <!-- 1. APPLE FROSTED GLASS HEADER                                             -->
+  <!-- 1. APPLE FROSTED GLASS HEADER (COLLISION-FREE MOBILE)                     -->
   <!-- ========================================================================= -->
   <header class="apple-header">
     <div class="header-inner">
@@ -682,22 +884,28 @@
         <span class="brand-title">РУСЛАН — 51</span>
       </div>
 
+      <!-- Desktop Nav Links -->
       <nav class="nav-links">
         <a href="#storyboard" class="nav-link">Сториборд</a>
         <a href="#voiceover" class="nav-link">Таймлайн & Диктор</a>
         <a href="#characters" class="nav-link">Персонажи</a>
         <a href="#environments" class="nav-link">Локации</a>
         <a href="#film2" class="nav-link">Фильм 2</a>
-        <a href="#downloads" class="nav-btn-pdf">Скачать PDF</a>
+        <a href="downloads/FILM1_STORYBOARD_REPORT.pdf" target="_blank" class="nav-btn-pdf">Скачать PDF</a>
       </nav>
+
+      <!-- Mobile Right Quick PDF Button -->
+      <div class="mobile-header-right">
+        <a href="downloads/FILM1_STORYBOARD_REPORT.pdf" target="_blank" class="nav-btn-pdf">PDF</a>
+      </div>
     </div>
   </header>
 
   <!-- ========================================================================= -->
-  <!-- 2. HERO SECTION (APPLE KEYNOTE STYLE)                                     -->
+  <!-- 2. HERO SECTION                                                           -->
   <!-- ========================================================================= -->
-  <main class="container" style="padding-top: 120px;">
-    <section style="margin-bottom: 48px;">
+  <main class="container" style="padding-top: 80px;">
+    <section style="margin-bottom: 36px;">
       <div class="eyebrow">Jel Labs × 26Studio · Презентационный пакет</div>
       <h1 class="hero-title">
         Подарок для Руслана.<br>
@@ -707,7 +915,7 @@
         Полный производственный материал для Айгерим и партнёров. Утверждённые персонажи, чистые архитектурные локации и 12 выверенных планов сториборда в разрешении 2K.
       </p>
 
-      <div style="display: flex; gap: 14px; flex-wrap: wrap;">
+      <div class="btn-group">
         <a href="#storyboard" class="btn-primary">
           Смотреть сториборд (12 кадров) ↓
         </a>
@@ -728,7 +936,7 @@
         </div>
         <div class="metric-box">
           <div class="metric-val">15</div>
-          <div class="metric-label">Утверждённых листов героев</div>
+          <div class="metric-label">Листов персонажей</div>
         </div>
         <div class="metric-box">
           <div class="metric-val">6</div>
@@ -740,13 +948,13 @@
     <!-- ========================================================================= -->
     <!-- 3. TIMELINE & VOICEOVER SCRUBBER                                          -->
     <!-- ========================================================================= -->
-    <section id="voiceover" style="margin-bottom: 64px;">
+    <section id="voiceover" style="margin-bottom: 48px;">
       <div class="eyebrow">Синхронизация звука и видео</div>
-      <h2 style="font-size: 32px; font-weight: 600; letter-spacing: -0.02em; margin-bottom: 8px;">
+      <h2 style="font-size: 26px; font-weight: 600; letter-spacing: -0.02em; margin-bottom: 6px;">
         Фильм 1: Текст диктора и хронология
       </h2>
-      <p style="font-size: 15px; color: var(--text-secondary); margin-bottom: 24px;">
-        Нажмите на сцену, чтобы мгновенно перейти к соответствующим кадрам в сториборде.
+      <p style="font-size: 14px; color: var(--text-secondary); margin-bottom: 18px;">
+        Нажмите на сцену, чтобы перейти к соответствующим кадрам в сториборде.
       </p>
 
       <div class="timeline-wrap">
@@ -754,32 +962,32 @@
           <button onclick="scrollToShot('1.1')" class="timeline-item">
             <div class="timeline-tc">0:00 – 0:05</div>
             <div class="timeline-title">1. Детство</div>
-            <div style="font-size: 11px; color: var(--text-muted); margin-top: 2px;">Корни и семья</div>
+            <div style="font-size: 10px; color: var(--text-muted); margin-top: 2px;">Корни и семья</div>
           </button>
           <button onclick="scrollToShot('2.1')" class="timeline-item">
             <div class="timeline-tc">0:05 – 0:09</div>
             <div class="timeline-title">2. Юность</div>
-            <div style="font-size: 11px; color: var(--text-muted); margin-top: 2px;">Благословение</div>
+            <div style="font-size: 10px; color: var(--text-muted); margin-top: 2px;">Благословение</div>
           </button>
           <button onclick="scrollToShot('3.1')" class="timeline-item">
             <div class="timeline-tc">0:09 – 0:18</div>
             <div class="timeline-title">3. Флот</div>
-            <div style="font-size: 11px; color: var(--text-muted); margin-top: 2px;">Морской горизонт</div>
+            <div style="font-size: 10px; color: var(--text-muted); margin-top: 2px;">Морской горизонт</div>
           </button>
           <button onclick="scrollToShot('4.1')" class="timeline-item">
             <div class="timeline-tc">0:18 – 0:27</div>
             <div class="timeline-title">4. Интеллект</div>
-            <div style="font-size: 11px; color: var(--text-muted); margin-top: 2px;">Шахматы и наука</div>
+            <div style="font-size: 10px; color: var(--text-muted); margin-top: 2px;">Шахматы и наука</div>
           </button>
           <button onclick="scrollToShot('5.1')" class="timeline-item">
             <div class="timeline-tc">0:27 – 0:36</div>
             <div class="timeline-title">5. Семья</div>
-            <div style="font-size: 11px; color: var(--text-muted); margin-top: 2px;">Трое любимых детей</div>
+            <div style="font-size: 10px; color: var(--text-muted); margin-top: 2px;">Трое любимых детей</div>
           </button>
           <button onclick="scrollToShot('6.1')" class="timeline-item">
             <div class="timeline-tc">0:36 – 0:45</div>
             <div class="timeline-title">6. Лидер</div>
-            <div style="font-size: 11px; color: var(--text-muted); margin-top: 2px;">Финал индустрии</div>
+            <div style="font-size: 10px; color: var(--text-muted); margin-top: 2px;">Финал индустрии</div>
           </button>
         </div>
       </div>
@@ -788,33 +996,35 @@
     <!-- ========================================================================= -->
     <!-- 4. STORYBOARD SECTION (12 APPROVED PLATES IN 2K)                           -->
     <!-- ========================================================================= -->
-    <section id="storyboard" style="margin-bottom: 80px;">
-      <div style="display: flex; flex-direction: column; gap: 8px; margin-bottom: 24px;">
+    <section id="storyboard" style="margin-bottom: 64px;">
+      <div style="display: flex; flex-direction: column; gap: 4px; margin-bottom: 18px;">
         <div class="eyebrow">Режиссёрский кадровый план</div>
-        <h2 style="font-size: 32px; font-weight: 600; letter-spacing: -0.02em;">
+        <h2 style="font-size: 26px; font-weight: 600; letter-spacing: -0.02em;">
           Сториборд Фильма 1 (12 шотов)
         </h2>
-        <p style="font-size: 15px; color: var(--text-secondary);">
-          Каждый план выверен по оптике, мизансцене, свету и физике пространства.
+        <p style="font-size: 14px; color: var(--text-secondary);">
+          Каждый план выверен по оптике, мизансцене, свету и физике пространства. Нажмите на кадр для полноэкранного просмотра и листания.
         </p>
       </div>
 
-      <!-- Segmented filter buttons -->
-      <div class="segmented-control">
-        <button onclick="filterScene('all')" class="segment-btn active scene-filter-btn" data-scene="all">Все шоты (12)</button>
-        <button onclick="filterScene(1)" class="segment-btn scene-filter-btn" data-scene="1">1. Детство</button>
-        <button onclick="filterScene(2)" class="segment-btn scene-filter-btn" data-scene="2">2. Юность</button>
-        <button onclick="filterScene(3)" class="segment-btn scene-filter-btn" data-scene="3">3. Флот</button>
-        <button onclick="filterScene(4)" class="segment-btn scene-filter-btn" data-scene="4">4. Наука</button>
-        <button onclick="filterScene(5)" class="segment-btn scene-filter-btn" data-scene="5">5. Семья</button>
-        <button onclick="filterScene(6)" class="segment-btn scene-filter-btn" data-scene="6">6. Финал</button>
+      <!-- Segmented filter buttons with horizontal momentum scroll -->
+      <div class="segmented-control-outer">
+        <div class="segmented-control">
+          <button onclick="filterScene('all')" class="segment-btn active scene-filter-btn" data-scene="all">Все шоты (12)</button>
+          <button onclick="filterScene(1)" class="segment-btn scene-filter-btn" data-scene="1">1. Детство</button>
+          <button onclick="filterScene(2)" class="segment-btn scene-filter-btn" data-scene="2">2. Юность</button>
+          <button onclick="filterScene(3)" class="segment-btn scene-filter-btn" data-scene="3">3. Флот</button>
+          <button onclick="filterScene(4)" class="segment-btn scene-filter-btn" data-scene="4">4. Наука</button>
+          <button onclick="filterScene(5)" class="segment-btn scene-filter-btn" data-scene="5">5. Семья</button>
+          <button onclick="filterScene(6)" class="segment-btn scene-filter-btn" data-scene="6">6. Финал</button>
+        </div>
       </div>
 
       <!-- Storyboard Grid -->
       <div class="storyboard-grid">
 
         <div class="shot-card storyboard-card" data-scene="1" id="shot-1.1">
-          <div class="shot-media" onclick="openLightbox('assets/images/storyboard/01_shot1_1_scene1_ruslan_child_entry.jpg', 'Shot 1.1 · Первое появление героя', '«Сегодня особенный день — день рождения человека, чей жизненный путь вдохновляет.»')">
+          <div class="shot-media" onclick="openGallery('storyboard', 0)">
             <img src="assets/images/storyboard/01_shot1_1_scene1_ruslan_child_entry.jpg" alt="Shot 1.1" class="shot-img" loading="lazy">
             <div class="shot-media-badge">
               <span class="badge-pill">Shot 1.1</span>
@@ -823,9 +1033,7 @@
           </div>
 
           <div class="shot-body">
-            <div class="shot-header">
-              <span class="shot-scene-tag">Сцена 1: Кухня детства 1985 г.</span>
-            </div>
+            <span class="shot-scene-tag">Сцена 1: Кухня детства 1985 г.</span>
             <h3 class="shot-title">Первое появление героя</h3>
 
             <div class="vo-quote-box">
@@ -848,7 +1056,7 @@
         </div>
 
         <div class="shot-card storyboard-card" data-scene="1" id="shot-1.2">
-          <div class="shot-media" onclick="openLightbox('assets/images/storyboard/02_shot1_2_scene1_family_birthday_table.jpg', 'Shot 1.2 · Семейный праздник за столом', '«Всё началось с крепких корней...»')">
+          <div class="shot-media" onclick="openGallery('storyboard', 1)">
             <img src="assets/images/storyboard/02_shot1_2_scene1_family_birthday_table.jpg" alt="Shot 1.2" class="shot-img" loading="lazy">
             <div class="shot-media-badge">
               <span class="badge-pill">Shot 1.2</span>
@@ -857,9 +1065,7 @@
           </div>
 
           <div class="shot-body">
-            <div class="shot-header">
-              <span class="shot-scene-tag">Сцена 1: Кухня детства 1985 г.</span>
-            </div>
+            <span class="shot-scene-tag">Сцена 1: Кухня детства 1985 г.</span>
             <h3 class="shot-title">Семейный праздник за столом</h3>
 
             <div class="vo-quote-box">
@@ -882,7 +1088,7 @@
         </div>
 
         <div class="shot-card storyboard-card" data-scene="2" id="shot-2.1">
-          <div class="shot-media" onclick="openLightbox('assets/images/storyboard/03_shot2_1_scene2_ruslan_youth_portrait.jpg', 'Shot 2.1 · Становление характера (19 лет)', '«...безграничной любви и нежной заботы мамы...»')">
+          <div class="shot-media" onclick="openGallery('storyboard', 2)">
             <img src="assets/images/storyboard/03_shot2_1_scene2_ruslan_youth_portrait.jpg" alt="Shot 2.1" class="shot-img" loading="lazy">
             <div class="shot-media-badge">
               <span class="badge-pill">Shot 2.1</span>
@@ -891,9 +1097,7 @@
           </div>
 
           <div class="shot-body">
-            <div class="shot-header">
-              <span class="shot-scene-tag">Сцена 2: Юность и Семейный Зал 1995 г.</span>
-            </div>
+            <span class="shot-scene-tag">Сцена 2: Юность и Семейный Зал 1995 г.</span>
             <h3 class="shot-title">Становление характера (19 лет)</h3>
 
             <div class="vo-quote-box">
@@ -916,7 +1120,7 @@
         </div>
 
         <div class="shot-card storyboard-card" data-scene="2" id="shot-2.2">
-          <div class="shot-media" onclick="openLightbox('assets/images/storyboard/04_shot2_2_scene2_family_hall_blessing.jpg', 'Shot 2.2 · Родительское благословение (20 лет)', '«...мудрости и чести, заложенных отцом.»')">
+          <div class="shot-media" onclick="openGallery('storyboard', 3)">
             <img src="assets/images/storyboard/04_shot2_2_scene2_family_hall_blessing.jpg" alt="Shot 2.2" class="shot-img" loading="lazy">
             <div class="shot-media-badge">
               <span class="badge-pill">Shot 2.2</span>
@@ -925,9 +1129,7 @@
           </div>
 
           <div class="shot-body">
-            <div class="shot-header">
-              <span class="shot-scene-tag">Сцена 2: Юность и Семейный Зал 1995 г.</span>
-            </div>
+            <span class="shot-scene-tag">Сцена 2: Юность и Семейный Зал 1995 г.</span>
             <h3 class="shot-title">Родительское благословение (20 лет)</h3>
 
             <div class="vo-quote-box">
@@ -950,7 +1152,7 @@
         </div>
 
         <div class="shot-card storyboard-card" data-scene="3" id="shot-3.1">
-          <div class="shot-media" onclick="openLightbox('assets/images/storyboard/05_shot3_1_scene3_navy_officer_deck.jpg', 'Shot 3.1 · Офицер флота на вахте', '«Белоснежная форма офицера морского флота открыла бескрайние горизонты...»')">
+          <div class="shot-media" onclick="openGallery('storyboard', 4)">
             <img src="assets/images/storyboard/05_shot3_1_scene3_navy_officer_deck.jpg" alt="Shot 3.1" class="shot-img" loading="lazy">
             <div class="shot-media-badge">
               <span class="badge-pill">Shot 3.1</span>
@@ -959,9 +1161,7 @@
           </div>
 
           <div class="shot-body">
-            <div class="shot-header">
-              <span class="shot-scene-tag">Сцена 3: Флот («Казмортрансфлот»)</span>
-            </div>
+            <span class="shot-scene-tag">Сцена 3: Флот («Казмортрансфлот»)</span>
             <h3 class="shot-title">Офицер флота на вахте</h3>
 
             <div class="vo-quote-box">
@@ -984,7 +1184,7 @@
         </div>
 
         <div class="shot-card storyboard-card" data-scene="3" id="shot-3.2">
-          <div class="shot-media" onclick="openLightbox('assets/images/storyboard/06_shot3_2_scene3_caspian_sunrise_vista.jpg', 'Shot 3.2 · Бескрайние горизонты Каспия', '«...и научила уверенно держать штурвал судьбы.»')">
+          <div class="shot-media" onclick="openGallery('storyboard', 5)">
             <img src="assets/images/storyboard/06_shot3_2_scene3_caspian_sunrise_vista.jpg" alt="Shot 3.2" class="shot-img" loading="lazy">
             <div class="shot-media-badge">
               <span class="badge-pill">Shot 3.2</span>
@@ -993,9 +1193,7 @@
           </div>
 
           <div class="shot-body">
-            <div class="shot-header">
-              <span class="shot-scene-tag">Сцена 3: Флот («Казмортрансфлот»)</span>
-            </div>
+            <span class="shot-scene-tag">Сцена 3: Флот («Казмортрансфлот»)</span>
             <h3 class="shot-title">Бескрайние горизонты Каспия</h3>
 
             <div class="vo-quote-box">
@@ -1018,7 +1216,7 @@
         </div>
 
         <div class="shot-card storyboard-card" data-scene="4" id="shot-4.1">
-          <div class="shot-media" onclick="openLightbox('assets/images/storyboard/07_shot4_1_scene4_chess_grandmaster.jpg', 'Shot 4.1 · Гроссмейстер за доской', '«...а шахматы, спорт и докторская степень...»')">
+          <div class="shot-media" onclick="openGallery('storyboard', 6)">
             <img src="assets/images/storyboard/07_shot4_1_scene4_chess_grandmaster.jpg" alt="Shot 4.1" class="shot-img" loading="lazy">
             <div class="shot-media-badge">
               <span class="badge-pill">Shot 4.1</span>
@@ -1027,9 +1225,7 @@
           </div>
 
           <div class="shot-body">
-            <div class="shot-header">
-              <span class="shot-scene-tag">Сцена 4: Интеллект, Наука и Спорт</span>
-            </div>
+            <span class="shot-scene-tag">Сцена 4: Интеллект, Наука и Спорт</span>
             <h3 class="shot-title">Гроссмейстер за доской</h3>
 
             <div class="vo-quote-box">
@@ -1052,7 +1248,7 @@
         </div>
 
         <div class="shot-card storyboard-card" data-scene="4" id="shot-4.2">
-          <div class="shot-media" onclick="openLightbox('assets/images/storyboard/08_shot4_2_scene4_academic_sports_study.jpg', 'Shot 4.2 · Характер созидателя и победы', '«...воспитали характер созидателя и победителя.»')">
+          <div class="shot-media" onclick="openGallery('storyboard', 7)">
             <img src="assets/images/storyboard/08_shot4_2_scene4_academic_sports_study.jpg" alt="Shot 4.2" class="shot-img" loading="lazy">
             <div class="shot-media-badge">
               <span class="badge-pill">Shot 4.2</span>
@@ -1061,9 +1257,7 @@
           </div>
 
           <div class="shot-body">
-            <div class="shot-header">
-              <span class="shot-scene-tag">Сцена 4: Интеллект, Наука и Спорт</span>
-            </div>
+            <span class="shot-scene-tag">Сцена 4: Интеллект, Наука и Спорт</span>
             <h3 class="shot-title">Характер созидателя и победы</h3>
 
             <div class="vo-quote-box">
@@ -1086,7 +1280,7 @@
         </div>
 
         <div class="shot-card storyboard-card" data-scene="5" id="shot-5.1">
-          <div class="shot-media" onclick="openLightbox('assets/images/storyboard/09_shot5_1_scene5_father_and_children_walk.jpg', 'Shot 5.1 · Счастливая прогулка по Терренкуру', '«Главное счастье и гордость Руслана — его трое детей...»')">
+          <div class="shot-media" onclick="openGallery('storyboard', 8)">
             <img src="assets/images/storyboard/09_shot5_1_scene5_father_and_children_walk.jpg" alt="Shot 5.1" class="shot-img" loading="lazy">
             <div class="shot-media-badge">
               <span class="badge-pill">Shot 5.1</span>
@@ -1095,9 +1289,7 @@
           </div>
 
           <div class="shot-body">
-            <div class="shot-header">
-              <span class="shot-scene-tag">Сцена 5: Семья и Трое Детей</span>
-            </div>
+            <span class="shot-scene-tag">Сцена 5: Семья и Трое Детей</span>
             <h3 class="shot-title">Счастливая прогулка по Терренкуру</h3>
 
             <div class="vo-quote-box">
@@ -1120,7 +1312,7 @@
         </div>
 
         <div class="shot-card storyboard-card" data-scene="5" id="shot-5.2">
-          <div class="shot-media" onclick="openLightbox('assets/images/storyboard/10_shot5_2_scene5_father_hugging_three_kids.jpg', 'Shot 5.2 · Отец — главный герой', '«...для которых отец всегда останется настоящим героем.»')">
+          <div class="shot-media" onclick="openGallery('storyboard', 9)">
             <img src="assets/images/storyboard/10_shot5_2_scene5_father_hugging_three_kids.jpg" alt="Shot 5.2" class="shot-img" loading="lazy">
             <div class="shot-media-badge">
               <span class="badge-pill">Shot 5.2</span>
@@ -1129,9 +1321,7 @@
           </div>
 
           <div class="shot-body">
-            <div class="shot-header">
-              <span class="shot-scene-tag">Сцена 5: Семья и Трое Детей</span>
-            </div>
+            <span class="shot-scene-tag">Сцена 5: Семья и Трое Детей</span>
             <h3 class="shot-title">Отец — главный герой</h3>
 
             <div class="vo-quote-box">
@@ -1154,7 +1344,7 @@
         </div>
 
         <div class="shot-card storyboard-card" data-scene="6" id="shot-6.1">
-          <div class="shot-media" onclick="openLightbox('assets/images/storyboard/11_shot6_1_scene6_executive_leader_focus.jpg', 'Shot 6.1 · Взгляд первого руководителя', '«А впереди — новые горизонты и управление масштабными проектами...»')">
+          <div class="shot-media" onclick="openGallery('storyboard', 10)">
             <img src="assets/images/storyboard/11_shot6_1_scene6_executive_leader_focus.jpg" alt="Shot 6.1" class="shot-img" loading="lazy">
             <div class="shot-media-badge">
               <span class="badge-pill">Shot 6.1</span>
@@ -1163,9 +1353,7 @@
           </div>
 
           <div class="shot-body">
-            <div class="shot-header">
-              <span class="shot-scene-tag">Сцена 6: Лидер Индустрии (Финал)</span>
-            </div>
+            <span class="shot-scene-tag">Сцена 6: Лидер Индустрии (Финал)</span>
             <h3 class="shot-title">Взгляд первого руководителя</h3>
 
             <div class="vo-quote-box">
@@ -1188,7 +1376,7 @@
         </div>
 
         <div class="shot-card storyboard-card" data-scene="6" id="shot-6.2">
-          <div class="shot-media" onclick="openLightbox('assets/images/storyboard/12_shot6_2_scene6_mining_hq_epic_finale.jpg', 'Shot 6.2 · Эпический финал и триумф', '«...в горнорудной индустрии на благо страны. С днем рождения, Руслан!»')">
+          <div class="shot-media" onclick="openGallery('storyboard', 11)">
             <img src="assets/images/storyboard/12_shot6_2_scene6_mining_hq_epic_finale.jpg" alt="Shot 6.2" class="shot-img" loading="lazy">
             <div class="shot-media-badge">
               <span class="badge-pill">Shot 6.2</span>
@@ -1197,9 +1385,7 @@
           </div>
 
           <div class="shot-body">
-            <div class="shot-header">
-              <span class="shot-scene-tag">Сцена 6: Лидер Индустрии (Финал)</span>
-            </div>
+            <span class="shot-scene-tag">Сцена 6: Лидер Индустрии (Финал)</span>
             <h3 class="shot-title">Эпический финал и триумф</h3>
 
             <div class="vo-quote-box">
@@ -1227,30 +1413,32 @@
     <!-- ========================================================================= -->
     <!-- 5. CHARACTER SHEETS (15 APPROVED 3-ANGLE MODEL SHEETS)                    -->
     <!-- ========================================================================= -->
-    <section id="characters" style="margin-bottom: 80px;">
-      <div style="margin-bottom: 24px;">
+    <section id="characters" style="margin-bottom: 64px;">
+      <div style="margin-bottom: 18px;">
         <div class="eyebrow">Модельные листы персонажей</div>
-        <h2 style="font-size: 32px; font-weight: 600; letter-spacing: -0.02em; margin-bottom: 8px;">
+        <h2 style="font-size: 26px; font-weight: 600; letter-spacing: -0.02em; margin-bottom: 4px;">
           Character Sheets (15 листов)
         </h2>
-        <p style="font-size: 15px; color: var(--text-secondary);">
+        <p style="font-size: 14px; color: var(--text-secondary);">
           Канонические трехпанельные модельные листы. Полное сохранение портретного сходства, пропорций и аутентичной одежды.
         </p>
       </div>
 
-      <!-- Segmented filter buttons -->
-      <div class="segmented-control">
-        <button onclick="filterChar('all')" class="segment-btn active char-filter-btn" data-category="all">Все персонажи (15)</button>
-        <button onclick="filterChar('ruslan')" class="segment-btn char-filter-btn" data-category="ruslan">Руслан (6 эпох)</button>
-        <button onclick="filterChar('family')" class="segment-btn char-filter-btn" data-category="family">Родители и Сестра</button>
-        <button onclick="filterChar('children')" class="segment-btn char-filter-btn" data-category="children">Трое Детей</button>
+      <!-- Segmented filter buttons with horizontal momentum scroll -->
+      <div class="segmented-control-outer">
+        <div class="segmented-control">
+          <button onclick="filterChar('all')" class="segment-btn active char-filter-btn" data-category="all">Все персонажи (15)</button>
+          <button onclick="filterChar('ruslan')" class="segment-btn char-filter-btn" data-category="ruslan">Руслан (6 эпох)</button>
+          <button onclick="filterChar('family')" class="segment-btn char-filter-btn" data-category="family">Родители и Сестра</button>
+          <button onclick="filterChar('children')" class="segment-btn char-filter-btn" data-category="children">Трое Детей</button>
+        </div>
       </div>
 
       <!-- Characters Grid -->
       <div class="grid-3">
 
         <div class="asset-card char-card" data-category="ruslan">
-          <div class="asset-media" onclick="openLightbox('assets/images/characters/01_scene1_ruslan_child_10yo.jpg', 'Руслан в детстве (10 лет)', 'Светлый, энергичный мальчик 10 лет с открытым взглядом. Нарядная белая рубашка, винтажный вязаный жилет. Любознательный, горящие глаза.')">
+          <div class="asset-media" onclick="openGallery('characters', 0)">
             <img src="assets/images/characters/01_scene1_ruslan_child_10yo.jpg" alt="Руслан в детстве (10 лет)" class="asset-img" loading="lazy">
           </div>
           <div class="asset-body">
@@ -1261,7 +1449,7 @@
         </div>
 
         <div class="asset-card char-card" data-category="family">
-          <div class="asset-media" onclick="openLightbox('assets/images/characters/02_scene1_mom_young_32yo.jpg', 'Молодая мама (~32 года)', 'Естественная русая прическа с челкой 80-х, нежное платье в пастельных тонах. Образ безграничной материнской заботы, тепла и уюта.')">
+          <div class="asset-media" onclick="openGallery('characters', 1)">
             <img src="assets/images/characters/02_scene1_mom_young_32yo.jpg" alt="Молодая мама (~32 года)" class="asset-img" loading="lazy">
           </div>
           <div class="asset-body">
@@ -1272,7 +1460,7 @@
         </div>
 
         <div class="asset-card char-card" data-category="family">
-          <div class="asset-media" onclick="openLightbox('assets/images/characters/03_scene1_dad_young_36yo.jpg', 'Молодой папа Бакытжан (~36 лет)', 'Молодой ученый-интеллигент, густые темные волосы без седины, БЕЗ ОЧКОВ. Белая рубашка с расстегнутым воротом. Спокойствие, мудрость и честь.')">
+          <div class="asset-media" onclick="openGallery('characters', 2)">
             <img src="assets/images/characters/03_scene1_dad_young_36yo.jpg" alt="Молодой папа Бакытжан (~36 лет)" class="asset-img" loading="lazy">
           </div>
           <div class="asset-body">
@@ -1283,7 +1471,7 @@
         </div>
 
         <div class="asset-card char-card" data-category="family">
-          <div class="asset-media" onclick="openLightbox('assets/images/characters/04_scene1_sister_alina_child_6yo.jpg', 'Сестренка Алина в детстве (~6 лет)', 'Очаровательная 6-летняя девочка с белыми праздничными бантами в волосах, голубое платье. Искренняя радость и детский восторг.')">
+          <div class="asset-media" onclick="openGallery('characters', 3)">
             <img src="assets/images/characters/04_scene1_sister_alina_child_6yo.jpg" alt="Сестренка Алина в детстве (~6 лет)" class="asset-img" loading="lazy">
           </div>
           <div class="asset-body">
@@ -1294,7 +1482,7 @@
         </div>
 
         <div class="asset-card char-card" data-category="ruslan">
-          <div class="asset-media" onclick="openLightbox('assets/images/characters/05_scene2_ruslan_youth_19yo.jpg', 'Руслан в юности (~19 лет)', 'Студент университета. Атлетичное телосложение, мужественные черты лица, волевой подбородок. Вязаный свитер 90-х с геометрическим узором.')">
+          <div class="asset-media" onclick="openGallery('characters', 4)">
             <img src="assets/images/characters/05_scene2_ruslan_youth_19yo.jpg" alt="Руслан в юности (~19 лет)" class="asset-img" loading="lazy">
           </div>
           <div class="asset-body">
@@ -1305,7 +1493,7 @@
         </div>
 
         <div class="asset-card char-card" data-category="family">
-          <div class="asset-media" onclick="openLightbox('assets/images/characters/06_scene2_dad_mature_48yo.jpg', 'Зрелый папа Бакытжан (~48 лет)', 'Солидный ученый-академик: темно-синий костюм, бордовый галстук, темные волосы по бокам без седины, БЕЗ ОЧКОВ. Отеческая гордость.')">
+          <div class="asset-media" onclick="openGallery('characters', 5)">
             <img src="assets/images/characters/06_scene2_dad_mature_48yo.jpg" alt="Зрелый папа Бакытжан (~48 лет)" class="asset-img" loading="lazy">
           </div>
           <div class="asset-body">
@@ -1316,7 +1504,7 @@
         </div>
 
         <div class="asset-card char-card" data-category="family">
-          <div class="asset-media" onclick="openLightbox('assets/images/characters/07_scene2_mom_mature_44yo.jpg', 'Зрелая мама (~44 года)', 'Элегантная блондинка с объемной салонной укладкой 90-х, изумрудное платье, жемчужное ожерелье. Грация и материнская любовь.')">
+          <div class="asset-media" onclick="openGallery('characters', 6)">
             <img src="assets/images/characters/07_scene2_mom_mature_44yo.jpg" alt="Зрелая мама (~44 года)" class="asset-img" loading="lazy">
           </div>
           <div class="asset-body">
@@ -1327,7 +1515,7 @@
         </div>
 
         <div class="asset-card char-card" data-category="family">
-          <div class="asset-media" onclick="openLightbox('assets/images/characters/08_scene2_sister_alina_teen_16yo.jpg', 'Сестра Алина — подросток (~16 лет)', '16-летняя девушка со стильной стрижкой 90-х, элегантное платье с воротничком. Теплая поддержка и сестринская привязанность.')">
+          <div class="asset-media" onclick="openGallery('characters', 7)">
             <img src="assets/images/characters/08_scene2_sister_alina_teen_16yo.jpg" alt="Сестра Алина — подросток (~16 лет)" class="asset-img" loading="lazy">
           </div>
           <div class="asset-body">
@@ -1338,7 +1526,7 @@
         </div>
 
         <div class="asset-card char-card" data-category="ruslan">
-          <div class="asset-media" onclick="openLightbox('assets/images/characters/09_scene3_ruslan_navy_officer.jpg', 'Руслан — Офицер флота (~25-28 лет)', 'Офицер «Казмортрансфлота». Белоснежная форменная рубашка со служебными погонами, галстук с золотым зажимом-якорем, фуражка, темные брюки.')">
+          <div class="asset-media" onclick="openGallery('characters', 8)">
             <img src="assets/images/characters/09_scene3_ruslan_navy_officer.jpg" alt="Руслан — Офицер флота (~25-28 лет)" class="asset-img" loading="lazy">
           </div>
           <div class="asset-body">
@@ -1349,7 +1537,7 @@
         </div>
 
         <div class="asset-card char-card" data-category="ruslan">
-          <div class="asset-media" onclick="openLightbox('assets/images/characters/10_scene4_ruslan_academic_intellect.jpg', 'Руслан — Ученый и Интеллектуал (~32-35 лет)', 'Доктор наук, гроссмейстер и спортсмен. Темно-серый шерстяной блейзер, тонкая черная мериносовая водолазка. Взгляд выдающегося стратега.')">
+          <div class="asset-media" onclick="openGallery('characters', 9)">
             <img src="assets/images/characters/10_scene4_ruslan_academic_intellect.jpg" alt="Руслан — Ученый и Интеллектуал (~32-35 лет)" class="asset-img" loading="lazy">
           </div>
           <div class="asset-body">
@@ -1360,7 +1548,7 @@
         </div>
 
         <div class="asset-card char-card" data-category="ruslan">
-          <div class="asset-media" onclick="openLightbox('assets/images/characters/11_scene5_ruslan_father_47yo.jpg', 'Руслан — Любящий отец (~47 лет)', 'Кашемировый джемпер графитового оттенка half-zip, брюки casual. Зрелый, привлекательный мужчина, излучающий теплоту и отеческую силу.')">
+          <div class="asset-media" onclick="openGallery('characters', 10)">
             <img src="assets/images/characters/11_scene5_ruslan_father_47yo.jpg" alt="Руслан — Любящий отец (~47 лет)" class="asset-img" loading="lazy">
           </div>
           <div class="asset-body">
@@ -1371,7 +1559,7 @@
         </div>
 
         <div class="asset-card char-card" data-category="children">
-          <div class="asset-media" onclick="openLightbox('assets/images/characters/12_scene5_daughter_eldest_21yo.jpg', 'Старшая дочь (~21 год)', 'Красивая казахская девушка 21 года с мягкими волнистыми волосами, темный топ, бежевые брюки. Гордость и нежная любовь к отцу.')">
+          <div class="asset-media" onclick="openGallery('characters', 11)">
             <img src="assets/images/characters/12_scene5_daughter_eldest_21yo.jpg" alt="Старшая дочь (~21 год)" class="asset-img" loading="lazy">
           </div>
           <div class="asset-body">
@@ -1382,7 +1570,7 @@
         </div>
 
         <div class="asset-card char-card" data-category="children">
-          <div class="asset-media" onclick="openLightbox('assets/images/characters/13_scene5_son_eldest_19yo.jpg', 'Старший сын (~19 лет)', 'Студент: короткая стрижка buzz-cut, тонкие прямоугольные очки, черный бомбер. Интеллектуальный, увлеченный беседой с отцом.')">
+          <div class="asset-media" onclick="openGallery('characters', 12)">
             <img src="assets/images/characters/13_scene5_son_eldest_19yo.jpg" alt="Старший сын (~19 лет)" class="asset-img" loading="lazy">
           </div>
           <div class="asset-body">
@@ -1393,7 +1581,7 @@
         </div>
 
         <div class="asset-card char-card" data-category="children">
-          <div class="asset-media" onclick="openLightbox('assets/images/characters/14_scene5_son_youngest_11yo.jpg', 'Младший сын (~11 лет)', 'Спортивный мальчик 11 лет в сине-сером худи с капюшоном. Обаятельная озорная улыбка, искренняя привязанность к папе.')">
+          <div class="asset-media" onclick="openGallery('characters', 13)">
             <img src="assets/images/characters/14_scene5_son_youngest_11yo.jpg" alt="Младший сын (~11 лет)" class="asset-img" loading="lazy">
           </div>
           <div class="asset-body">
@@ -1404,7 +1592,7 @@
         </div>
 
         <div class="asset-card char-card" data-category="ruslan">
-          <div class="asset-media" onclick="openLightbox('assets/images/characters/15_scene6_ruslan_executive_leader.jpg', 'Руслан — Лидер индустрии (51 год)', 'Руководитель масштабных проектов индустрии. Безупречный темно-синий костюм, белая сорочка, шелковый галстук. Мудрость, величие и созидание.')">
+          <div class="asset-media" onclick="openGallery('characters', 14)">
             <img src="assets/images/characters/15_scene6_ruslan_executive_leader.jpg" alt="Руслан — Лидер индустрии (51 год)" class="asset-img" loading="lazy">
           </div>
           <div class="asset-body">
@@ -1420,13 +1608,13 @@
     <!-- ========================================================================= -->
     <!-- 6. ENVIRONMENTS (6 LOCKED ARCHITECTURAL BACKGROUND PLATES)                 -->
     <!-- ========================================================================= -->
-    <section id="environments" style="margin-bottom: 80px;">
-      <div style="margin-bottom: 28px;">
+    <section id="environments" style="margin-bottom: 64px;">
+      <div style="margin-bottom: 20px;">
         <div class="eyebrow">Архитектурные фоновые плейты</div>
-        <h2 style="font-size: 32px; font-weight: 600; letter-spacing: -0.02em; margin-bottom: 8px;">
+        <h2 style="font-size: 26px; font-weight: 600; letter-spacing: -0.02em; margin-bottom: 4px;">
           Локации и Пространство (6 сред)
         </h2>
-        <p style="font-size: 15px; color: var(--text-secondary);">
+        <p style="font-size: 14px; color: var(--text-secondary);">
           Чистые архитектурные интерьеры и пейзажи без персонажей, фиксирующие ракурсы, мебель, свет и атмосферу эпох.
         </p>
       </div>
@@ -1434,7 +1622,7 @@
       <div class="grid-3">
 
         <div class="asset-card">
-          <div class="asset-media" onclick="openLightbox('assets/images/environments/01_scene1_childhood_kitchen_dining.jpg', 'Сцена 01 · Кухня алматинской квартиры (1985 г.)', 'Теплая залитая солнцем кухня алматинской квартиры на 3-м этаже. Самовар, праздничный торт, осенний ноябрь за окном, вид на золотые кроны и снежные вершины Заилийского Алатау.')">
+          <div class="asset-media" onclick="openGallery('environments', 0)">
             <img src="assets/images/environments/01_scene1_childhood_kitchen_dining.jpg" alt="Кухня алматинской квартиры (1985 г.)" class="asset-img" loading="lazy">
           </div>
           <div class="asset-body">
@@ -1445,7 +1633,7 @@
         </div>
 
         <div class="asset-card">
-          <div class="asset-media" onclick="openLightbox('assets/images/environments/02_scene2_youth_family_hall.jpg', 'Сцена 02 · Семейный зал интеллигенции (1995 г.)', 'Уютный алматинский «Зал» 90-х: полированная ореховая стенка с сервизом и книгами, торшер с бахромой, раздвижной стол, ковер. Атмосфера академической семьи и родительского благословения.')">
+          <div class="asset-media" onclick="openGallery('environments', 1)">
             <img src="assets/images/environments/02_scene2_youth_family_hall.jpg" alt="Семейный зал интеллигенции (1995 г.)" class="asset-img" loading="lazy">
           </div>
           <div class="asset-body">
@@ -1456,7 +1644,7 @@
         </div>
 
         <div class="asset-card">
-          <div class="asset-media" onclick="openLightbox('assets/images/environments/03_scene3_naval_ship_bridge.jpg', 'Сцена 03 · Палуба судна «Казмортрансфлот»', 'Открытая тиковая палуба морского судна на Каспийском море. Белые леера, латунная фурнитура, золотой рассвет над морской гладью и бескрайние просторы горизонта.')">
+          <div class="asset-media" onclick="openGallery('environments', 2)">
             <img src="assets/images/environments/03_scene3_naval_ship_bridge.jpg" alt="Палуба судна «Казмортрансфлот»" class="asset-img" loading="lazy">
           </div>
           <div class="asset-body">
@@ -1467,7 +1655,7 @@
         </div>
 
         <div class="asset-card">
-          <div class="asset-media" onclick="openLightbox('assets/images/environments/04_scene4_intellect_sports_study.jpg', 'Сцена 04 · Кабинет ученого и гроссмейстера', 'Современный кабинет стратега: деревянный шахматный столик с доской 8×8, диплом доктора наук в золотой раме, подсвеченные ниши с кубками и чемпионским поясом, вид на предгорья.')">
+          <div class="asset-media" onclick="openGallery('environments', 3)">
             <img src="assets/images/environments/04_scene4_intellect_sports_study.jpg" alt="Кабинет ученого и гроссмейстера" class="asset-img" loading="lazy">
           </div>
           <div class="asset-body">
@@ -1478,7 +1666,7 @@
         </div>
 
         <div class="asset-card">
-          <div class="asset-media" onclick="openLightbox('assets/images/environments/05_scene5_almaty_green_park.jpg', 'Сцена 05 · Променад Терренкур / Медеу на закате', 'Величественная природа Алматы: каменная мостовая, вековые тянь-шанские ели, горная речка с гранитными валунами, чугунные фонари и пики Алатау в розово-золотом закатном альпенглоу.')">
+          <div class="asset-media" onclick="openGallery('environments', 4)">
             <img src="assets/images/environments/05_scene5_almaty_green_park.jpg" alt="Променад Терренкур / Медеу на закате" class="asset-img" loading="lazy">
           </div>
           <div class="asset-body">
@@ -1489,7 +1677,7 @@
         </div>
 
         <div class="asset-card">
-          <div class="asset-media" onclick="openLightbox('assets/images/environments/06_scene6_executive_observation_gallery.jpg', 'Сцена 06 · Кабинет первого руководителя на производстве', 'Престижный офис главы предприятия: монументальный Т-образный стол из темного ореха, на стене — светящаяся ТВ-карта Казахстана, под ней 3D-макет недр, за панорамным стеклом — гигантский ступенчатый карьер в лучах заката.')">
+          <div class="asset-media" onclick="openGallery('environments', 5)">
             <img src="assets/images/environments/06_scene6_executive_observation_gallery.jpg" alt="Кабинет первого руководителя на производстве" class="asset-img" loading="lazy">
           </div>
           <div class="asset-body">
@@ -1505,19 +1693,19 @@
     <!-- ========================================================================= -->
     <!-- 7. FILM 2: «ВЕСНА, КОТОРАЯ ИЗМЕНИЛА ВСЁ»                                  -->
     <!-- ========================================================================= -->
-    <section id="film2" style="margin-bottom: 80px;">
+    <section id="film2" style="margin-bottom: 64px;">
       <div class="film2-hero">
         <div class="eyebrow">Второй фильм проекта · 45 секунд</div>
-        <h2 style="font-size: 32px; font-weight: 600; letter-spacing: -0.02em; margin-bottom: 12px;">
+        <h2 style="font-size: 26px; font-weight: 600; letter-spacing: -0.02em; margin-bottom: 10px;">
           Фильм 2: «Весна, которая изменила всё»
         </h2>
-        <p style="font-size: 16px; color: var(--text-secondary); max-width: 820px; line-height: 1.55; margin-bottom: 24px;">
+        <p style="font-size: 15px; color: var(--text-secondary); max-width: 820px; line-height: 1.5; margin-bottom: 20px;">
           Лирическая романтическая анимационная новелла о судьбоносной встрече Руслана и Айгерим в цветущей весенней Алма-Ате. Контраст сильного, сосредоточенного лидера индустрии и его вдохновительницы, наполнившей мир весенним теплом и гармонией.
         </p>
 
-        <div class="vo-quote-box" style="margin-bottom: 28px;">
+        <div class="vo-quote-box" style="margin-bottom: 24px;">
           <div class="vo-label">Текст диктора Фильма 2 (Черновой драфт)</div>
-          <div class="vo-text" style="font-size: 15px;">
+          <div class="vo-text" style="font-size: 14px;">
             «В жизни сильного мужчины бывает момент, когда одно мгновение меняет весь мир. Весенняя Алма-Ата, аромат яблоневого цвета и взгляд, в котором соединились нежность, поддержка и дом. Айгерим стала той весной, которая расцветает в сердце навсегда. С днем рождения, любимый!»
           </div>
         </div>
@@ -1533,13 +1721,13 @@
     <!-- ========================================================================= -->
     <!-- 8. DOWNLOADS VAULT                                                        -->
     <!-- ========================================================================= -->
-    <section id="downloads" style="margin-bottom: 80px;">
-      <div style="margin-bottom: 24px;">
+    <section id="downloads" style="margin-bottom: 64px;">
+      <div style="margin-bottom: 20px;">
         <div class="eyebrow">Официальные отчёты Jel Labs</div>
-        <h2 style="font-size: 32px; font-weight: 600; letter-spacing: -0.02em; margin-bottom: 8px;">
+        <h2 style="font-size: 26px; font-weight: 600; letter-spacing: -0.02em; margin-bottom: 4px;">
           Архив документов и отчётов
         </h2>
-        <p style="font-size: 15px; color: var(--text-secondary);">
+        <p style="font-size: 14px; color: var(--text-secondary);">
           Все материалы сверстаны в чистом швейцарском стиле 16:9 и доступны для прямого скачивания.
         </p>
       </div>
@@ -1600,100 +1788,229 @@
   </footer>
 
   <!-- ========================================================================= -->
-  <!-- 10. LIGHTBOX MODAL                                                        -->
+  <!-- 10. APPLE MOBILE-FIRST LIGHTBOX MODAL WITH SWIPE & COUNTER                -->
   <!-- ========================================================================= -->
   <div id="lightboxModal" class="lightbox-overlay" onclick="closeLightbox(event)">
-    <button onclick="closeLightbox(event)" class="lightbox-close">&times;</button>
-    <div class="lightbox-box" onclick="event.stopPropagation()">
-      <img id="lightboxImg" src="" alt="Enlarged" class="lightbox-img">
-      <div id="lightboxTitle" class="lightbox-caption"></div>
+    <!-- Top Bar -->
+    <div class="lightbox-topbar" onclick="event.stopPropagation()">
+      <div id="lightboxCounter" class="lightbox-counter">1 / 12</div>
+      <button onclick="closeLightbox(event)" class="lightbox-close-btn" title="Закрыть (Esc)">&times;</button>
+    </div>
+
+    <!-- Center Stage with Touch Swiping -->
+    <div id="lightboxStage" class="lightbox-stage" onclick="event.stopPropagation()">
+      <!-- Prev Button -->
+      <button id="lightboxPrevBtn" onclick="prevLightbox(event)" class="lightbox-nav-btn lightbox-prev" title="Предыдущий (←)">&#8249;</button>
+
+      <!-- Center Image (Never cropped, 100% contained) -->
+      <div class="lightbox-img-wrap">
+        <img id="lightboxImg" src="" alt="Enlarged Frame" class="lightbox-img">
+      </div>
+
+      <!-- Next Button -->
+      <button id="lightboxNextBtn" onclick="nextLightbox(event)" class="lightbox-nav-btn lightbox-next" title="Следующий (→)">&#8250;</button>
+    </div>
+
+    <!-- Bottom Caption -->
+    <div class="lightbox-bottom" onclick="event.stopPropagation()">
+      <div id="lightboxTitle" class="lightbox-title"></div>
       <div id="lightboxDesc" class="lightbox-sub"></div>
     </div>
   </div>
 
   <!-- ========================================================================= -->
-  <!-- 11. INTERACTIVE LOGIC (VANILLA JS)                                        -->
+  <!-- 11. INTERACTIVE LOGIC & TOUCH GESTURES                                    -->
   <!-- ========================================================================= -->
   <script>
-    // Storyboard Scene Filters
-    function filterScene(scene) {
+    // Gallery Data
+    const galleries = {{
+      storyboard: {sb_json},
+      characters: {ch_json},
+      environments: {env_json}
+    }};
+
+    let activeGalleryName = 'storyboard';
+    let currentGalleryIndex = 0;
+
+    // Filter Storyboard Scenes
+    function filterScene(scene) {{
       const cards = document.querySelectorAll('.storyboard-card');
       const btns = document.querySelectorAll('.scene-filter-btn');
 
-      btns.forEach(b => {
-        if (b.dataset.scene == scene) {
+      btns.forEach(b => {{
+        if (b.dataset.scene == scene) {{
           b.classList.add('active');
-        } else {
+        }} else {{
           b.classList.remove('active');
-        }
-      });
+        }}
+      }});
 
-      cards.forEach(c => {
-        if (scene === 'all' || c.dataset.scene == scene) {
+      cards.forEach(c => {{
+        if (scene === 'all' || c.dataset.scene == scene) {{
           c.style.display = 'flex';
-        } else {
+        }} else {{
           c.style.display = 'none';
-        }
-      });
-    }
+        }}
+      }});
+    }}
 
-    // Character Category Filters
-    function filterChar(category) {
+    // Filter Character Categories
+    function filterChar(category) {{
       const cards = document.querySelectorAll('.char-card');
       const btns = document.querySelectorAll('.char-filter-btn');
 
-      btns.forEach(b => {
-        if (b.dataset.category == category) {
+      btns.forEach(b => {{
+        if (b.dataset.category == category) {{
           b.classList.add('active');
-        } else {
+        }} else {{
           b.classList.remove('active');
-        }
-      });
+        }}
+      }});
 
-      cards.forEach(c => {
-        if (category === 'all' || c.dataset.category == category) {
+      cards.forEach(c => {{
+        if (category === 'all' || c.dataset.category == category) {{
           c.style.display = 'flex';
-        } else {
+        }} else {{
           c.style.display = 'none';
-        }
-      });
-    }
+        }}
+      }});
+    }}
 
     // Smooth Scroll to Shot
-    function scrollToShot(shotId) {
+    function scrollToShot(shotId) {{
       filterScene('all');
       const el = document.getElementById('shot-' + shotId);
-      if (el) {
-        el.scrollIntoView({ behavior: 'smooth', block: 'center' });
+      if (el) {{
+        el.scrollIntoView({{ behavior: 'smooth', block: 'center' }});
         el.style.borderColor = 'var(--text-primary)';
         el.style.boxShadow = '0 0 0 2px rgba(29, 29, 31, 0.2)';
-        setTimeout(() => {
+        setTimeout(() => {{
           el.style.borderColor = '';
           el.style.boxShadow = '';
-        }, 1800);
-      }
-    }
+        }}, 1800);
+      }}
+    }}
 
-    // Lightbox Modal
-    function openLightbox(src, title, desc) {
+    // Open Gallery Lightbox
+    function openGallery(galleryName, index) {{
+      activeGalleryName = galleryName;
+      currentGalleryIndex = index;
+      updateLightboxContent(0);
+
       const modal = document.getElementById('lightboxModal');
-      document.getElementById('lightboxImg').src = src;
-      document.getElementById('lightboxTitle').textContent = title;
-      document.getElementById('lightboxDesc').textContent = desc || '';
       modal.classList.add('active');
       document.body.style.overflow = 'hidden';
-    }
+    }}
 
-    function closeLightbox(e) {
-      if (e) e.stopPropagation();
+    function updateLightboxContent(direction = 0) {{
+      const list = galleries[activeGalleryName];
+      if (!list || list.length === 0) return;
+
+      if (currentGalleryIndex < 0) currentGalleryIndex = 0;
+      if (currentGalleryIndex >= list.length) currentGalleryIndex = list.length - 1;
+
+      const item = list[currentGalleryIndex];
+      const imgEl = document.getElementById('lightboxImg');
+      
+      imgEl.style.opacity = '0';
+      imgEl.style.transform = direction > 0 ? 'translateX(24px) scale(0.98)' : direction < 0 ? 'translateX(-24px) scale(0.98)' : 'scale(0.96)';
+
+      const showImg = () => {{
+        imgEl.style.opacity = '1';
+        imgEl.style.transform = 'translateX(0) scale(1)';
+      }};
+
+      imgEl.onload = showImg;
+      imgEl.src = item.img;
+      if (imgEl.complete) {{
+        showImg();
+      }}
+
+      document.getElementById('lightboxCounter').textContent = (currentGalleryIndex + 1) + ' / ' + list.length;
+      document.getElementById('lightboxTitle').textContent = item.title;
+      document.getElementById('lightboxDesc').textContent = item.desc || '';
+
+      // Nav buttons state
+      document.getElementById('lightboxPrevBtn').style.opacity = currentGalleryIndex === 0 ? '0.2' : '1';
+      document.getElementById('lightboxNextBtn').style.opacity = currentGalleryIndex === list.length - 1 ? '0.2' : '1';
+    }}
+
+    function nextLightbox(e) {{
+      if (e && e.stopPropagation) e.stopPropagation();
+      const list = galleries[activeGalleryName];
+      if (currentGalleryIndex < list.length - 1) {{
+        currentGalleryIndex++;
+        updateLightboxContent(1);
+      }}
+    }}
+
+    function prevLightbox(e) {{
+      if (e && e.stopPropagation) e.stopPropagation();
+      if (currentGalleryIndex > 0) {{
+        currentGalleryIndex--;
+        updateLightboxContent(-1);
+      }}
+    }}
+
+    function closeLightbox(e) {{
+      if (e && e.stopPropagation) e.stopPropagation();
       const modal = document.getElementById('lightboxModal');
       modal.classList.remove('active');
       document.body.style.overflow = '';
-    }
+    }}
 
-    document.addEventListener('keydown', (e) => {
+    // Keyboard Navigation
+    document.addEventListener('keydown', (e) => {{
+      const modal = document.getElementById('lightboxModal');
+      if (!modal.classList.contains('active')) return;
+
       if (e.key === 'Escape') closeLightbox();
-    });
+      if (e.key === 'ArrowRight') nextLightbox();
+      if (e.key === 'ArrowLeft') prevLightbox();
+    }});
+
+    // Universal Touch Swipe Gestures for Mobile (Attached to entire Modal)
+    let touchStartX = 0;
+    let touchStartY = 0;
+    let touchEndX = 0;
+    let touchEndY = 0;
+
+    const modalEl = document.getElementById('lightboxModal');
+
+    modalEl.addEventListener('touchstart', (e) => {{
+      if (e.changedTouches && e.changedTouches[0]) {{
+        touchStartX = e.changedTouches[0].clientX;
+        touchStartY = e.changedTouches[0].clientY;
+      }}
+    }}, {{ passive: true }});
+
+    modalEl.addEventListener('touchend', (e) => {{
+      if (e.changedTouches && e.changedTouches[0]) {{
+        touchEndX = e.changedTouches[0].clientX;
+        touchEndY = e.changedTouches[0].clientY;
+        handleSwipeGesture();
+      }}
+    }}, {{ passive: true }});
+
+    function handleSwipeGesture() {{
+      const dx = touchEndX - touchStartX;
+      const dy = touchEndY - touchStartY;
+      const absDx = Math.abs(dx);
+      const absDy = Math.abs(dy);
+
+      // Horizontal swipe
+      if (absDx > absDy && absDx > 30) {{
+        if (dx < 0) {{
+          nextLightbox(); // Swiped left -> next
+        }} else {{
+          prevLightbox(); // Swiped right -> prev
+        }}
+      }}
+      // Vertical swipe down to close
+      else if (dy > 65 && absDx < 60) {{
+        closeLightbox();
+      }}
+    }}
   </script>
 </body>
 </html>
