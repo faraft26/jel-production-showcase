@@ -1,0 +1,1720 @@
+<!DOCTYPE html>
+<html lang="ru" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="robots" content="noindex, nofollow, noarchive, nosnippet">
+  <meta name="googlebot" content="noindex, nofollow">
+  <title>РУСЛАН — 51 // Кинопроект ко Дню Рождения | Jel Labs × 26Studio</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Syne:wght@600;700;800&display=swap" rel="stylesheet">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['"Plus Jakarta Sans"', 'sans-serif'],
+            display: ['Syne', 'sans-serif']
+          },
+          colors: {
+            brand: {
+              gold: '#D4AF37',
+              amber: '#F59E0B',
+              bronze: '#92400E',
+              dark: '#08080A',
+              card: '#121216',
+              border: 'rgba(255, 255, 255, 0.08)'
+            }
+          }
+        }
+      }
+    }
+  </script>
+  <style>
+    body {
+      background-color: #070709;
+      color: #E2E8F0;
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      overflow-x: hidden;
+    }
+    .glow-gold {
+      text-shadow: 0 0 30px rgba(212, 175, 55, 0.35);
+    }
+    .glass-nav {
+      background: rgba(14, 14, 18, 0.75);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+    }
+    .double-bezel {
+      background: rgba(255, 255, 255, 0.02);
+      border: 1px solid rgba(255, 255, 255, 0.06);
+      border-radius: 1.75rem;
+      padding: 0.5rem;
+    }
+    .double-bezel-inner {
+      background: #0E0E12;
+      border: 1px solid rgba(255, 255, 255, 0.04);
+      border-radius: 1.35rem;
+      overflow: hidden;
+    }
+    .gold-gradient-text {
+      background: linear-gradient(135deg, #FFF 20%, #D4AF37 70%, #F59E0B 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+    .subtle-grid {
+      background-size: 40px 40px;
+      background-image: 
+        linear-gradient(to right, rgba(255, 255, 255, 0.02) 1px, transparent 1px),
+        linear-gradient(to bottom, rgba(255, 255, 255, 0.02) 1px, transparent 1px);
+    }
+    .keypad-btn {
+      transition: all 0.15s cubic-bezier(0.32, 0.72, 0, 1);
+    }
+    .keypad-btn:active {
+      transform: scale(0.92);
+      background-color: rgba(212, 175, 55, 0.25);
+    }
+    @keyframes shake {
+      0%, 100% { transform: translateX(0); }
+      20%, 60% { transform: translateX(-8px); }
+      40%, 80% { transform: translateX(8px); }
+    }
+    .shake {
+      animation: shake 0.4s ease-in-out;
+    }
+  </style>
+</head>
+<body class="subtle-grid min-h-screen">
+
+  <!-- ========================================================================= -->
+  <!-- 1. SECURITY PASSCODE GATE (PIN: 1411 or ?pass=1411)                        -->
+  <!-- ========================================================================= -->
+  <div id="gateOverlay" class="fixed inset-0 z-50 flex items-center justify-center bg-black/95 backdrop-blur-2xl transition-opacity duration-500">
+    <div id="gateCard" class="w-full max-w-sm p-8 mx-4 text-center double-bezel shadow-2xl">
+      <div class="double-bezel-inner p-6">
+        <div class="flex justify-center mb-4">
+          <div class="w-12 h-12 rounded-full bg-amber-500/10 border border-amber-500/20 flex items-center justify-center text-amber-400">
+            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.75" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"/>
+            </svg>
+          </div>
+        </div>
+        <div class="text-[11px] font-semibold tracking-[0.25em] text-amber-400 uppercase mb-1">Jel Labs × 26Studio</div>
+        <h2 class="text-xl font-bold font-display text-white mb-2">Закрытый показ проекта</h2>
+        <p class="text-xs text-gray-400 mb-6 leading-relaxed">Введите 4-значный персональный PIN-код доступа для просмотра материалов</p>
+
+        <!-- PIN Dots Indicator -->
+        <div class="flex justify-center gap-3 mb-8">
+          <div id="dot0" class="w-3.5 h-3.5 rounded-full border border-white/20 transition-all duration-200"></div>
+          <div id="dot1" class="w-3.5 h-3.5 rounded-full border border-white/20 transition-all duration-200"></div>
+          <div id="dot2" class="w-3.5 h-3.5 rounded-full border border-white/20 transition-all duration-200"></div>
+          <div id="dot3" class="w-3.5 h-3.5 rounded-full border border-white/20 transition-all duration-200"></div>
+        </div>
+
+        <!-- Numeric Keypad -->
+        <div class="grid grid-cols-3 gap-3 max-w-[240px] mx-auto mb-4">
+          <button onclick="pressKey('1')" class="keypad-btn h-14 rounded-2xl bg-white/5 hover:bg-white/10 text-xl font-medium text-white border border-white/5">1</button>
+          <button onclick="pressKey('2')" class="keypad-btn h-14 rounded-2xl bg-white/5 hover:bg-white/10 text-xl font-medium text-white border border-white/5">2</button>
+          <button onclick="pressKey('3')" class="keypad-btn h-14 rounded-2xl bg-white/5 hover:bg-white/10 text-xl font-medium text-white border border-white/5">3</button>
+          <button onclick="pressKey('4')" class="keypad-btn h-14 rounded-2xl bg-white/5 hover:bg-white/10 text-xl font-medium text-white border border-white/5">4</button>
+          <button onclick="pressKey('5')" class="keypad-btn h-14 rounded-2xl bg-white/5 hover:bg-white/10 text-xl font-medium text-white border border-white/5">5</button>
+          <button onclick="pressKey('6')" class="keypad-btn h-14 rounded-2xl bg-white/5 hover:bg-white/10 text-xl font-medium text-white border border-white/5">6</button>
+          <button onclick="pressKey('7')" class="keypad-btn h-14 rounded-2xl bg-white/5 hover:bg-white/10 text-xl font-medium text-white border border-white/5">7</button>
+          <button onclick="pressKey('8')" class="keypad-btn h-14 rounded-2xl bg-white/5 hover:bg-white/10 text-xl font-medium text-white border border-white/5">8</button>
+          <button onclick="pressKey('9')" class="keypad-btn h-14 rounded-2xl bg-white/5 hover:bg-white/10 text-xl font-medium text-white border border-white/5">9</button>
+          <button onclick="clearPin()" class="keypad-btn h-14 rounded-2xl bg-white/5 hover:bg-white/10 text-xs font-medium text-gray-400 border border-white/5">СБРОС</button>
+          <button onclick="pressKey('0')" class="keypad-btn h-14 rounded-2xl bg-white/5 hover:bg-white/10 text-xl font-medium text-white border border-white/5">0</button>
+          <button onclick="backspacePin()" class="keypad-btn h-14 rounded-2xl bg-white/5 hover:bg-white/10 text-sm font-medium text-gray-400 border border-white/5 flex items-center justify-center">⌫</button>
+        </div>
+
+        <div id="gateError" class="text-xs text-rose-400 min-h-[18px] opacity-0 transition-opacity">Неверный код доступа</div>
+        <div class="text-[10px] text-gray-500 mt-2">Подсказка для заказчика: день и месяц рождения (1411)</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ========================================================================= -->
+  <!-- 2. MAIN APPLICATION (SECURE AREA)                                         -->
+  <!-- ========================================================================= -->
+  <div id="appContainer" class="opacity-0 transition-opacity duration-500">
+
+    <!-- Floating Glass Navbar -->
+    <header class="fixed top-5 inset-x-0 z-40 px-4 pointer-events-none">
+      <nav class="max-w-6xl mx-auto glass-nav rounded-full px-5 py-2.5 flex items-center justify-between pointer-events-auto shadow-2xl">
+        <div class="flex items-center gap-3">
+          <img src="assets/images/jel_labs_logo.png" alt="Jel Labs" class="h-6 w-auto object-contain">
+          <div class="hidden sm:block h-4 w-px bg-white/15"></div>
+          <span class="hidden sm:block text-xs font-semibold tracking-wider text-gray-300">РУСЛАН — 51</span>
+        </div>
+
+        <div class="flex items-center gap-1 sm:gap-2 text-xs font-medium text-gray-400">
+          <a href="#storyboard" class="px-3 py-1.5 rounded-full hover:text-white hover:bg-white/5 transition-colors">Сториборд</a>
+          <a href="#voiceover" class="hidden md:inline-block px-3 py-1.5 rounded-full hover:text-white hover:bg-white/5 transition-colors">Диктор</a>
+          <a href="#characters" class="px-3 py-1.5 rounded-full hover:text-white hover:bg-white/5 transition-colors">Персонажи</a>
+          <a href="#environments" class="hidden sm:inline-block px-3 py-1.5 rounded-full hover:text-white hover:bg-white/5 transition-colors">Локации</a>
+          <a href="#film2" class="px-3 py-1.5 rounded-full hover:text-white hover:bg-white/5 transition-colors">Фильм 2</a>
+          <a href="#downloads" class="px-3 py-1.5 rounded-full text-amber-400 bg-amber-400/10 hover:bg-amber-400/20 border border-amber-400/20 transition-all">PDF</a>
+        </div>
+
+        <button onclick="lockPortal()" title="Заблокировать просмотр" class="p-2 rounded-full hover:bg-white/10 text-gray-400 hover:text-white transition-colors">
+          <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 16l4-4m0 0l-4-4m4 4H7m6 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h4a3 3 0 013 3v1"/>
+          </svg>
+        </button>
+      </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="pt-36 pb-20 px-4 text-center max-w-5xl mx-auto">
+      <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-amber-500/10 border border-amber-500/20 text-amber-400 text-xs font-medium mb-6">
+        <span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
+        STAGE 02: STORYBOARD APPROVED & LOCKED
+      </div>
+      <h1 class="text-4xl sm:text-6xl lg:text-7xl font-extrabold font-display tracking-tight text-white mb-6">
+        Подарок для Руслана <br>
+        <span class="gold-gradient-text">Два фильма Pixar 3D</span>
+      </h1>
+      <p class="text-base sm:text-lg text-gray-400 max-w-2xl mx-auto mb-10 leading-relaxed font-light">
+        Полный производственный пакет Jel Labs × 26Studio для Айгерим. Утверждённые персонажи, чистые архитектурные локации и 12 чистовых кадров сториборда в качестве 2K.
+      </p>
+
+      <!-- Key Metrics Bento -->
+      <div class="grid grid-cols-2 sm:grid-cols-4 gap-4 max-w-3xl mx-auto mb-12">
+        <div class="double-bezel">
+          <div class="double-bezel-inner p-4 text-center">
+            <div class="text-2xl sm:text-3xl font-extrabold text-white font-display">2 × 45″</div>
+            <div class="text-[11px] text-gray-400 uppercase tracking-wider mt-1">Хронометраж</div>
+          </div>
+        </div>
+        <div class="double-bezel">
+          <div class="double-bezel-inner p-4 text-center">
+            <div class="text-2xl sm:text-3xl font-extrabold text-amber-400 font-display">12</div>
+            <div class="text-[11px] text-gray-400 uppercase tracking-wider mt-1">Кадров сториборда</div>
+          </div>
+        </div>
+        <div class="double-bezel">
+          <div class="double-bezel-inner p-4 text-center">
+            <div class="text-2xl sm:text-3xl font-extrabold text-white font-display">15</div>
+            <div class="text-[11px] text-gray-400 uppercase tracking-wider mt-1">Character Sheets</div>
+          </div>
+        </div>
+        <div class="double-bezel">
+          <div class="double-bezel-inner p-4 text-center">
+            <div class="text-2xl sm:text-3xl font-extrabold text-emerald-400 font-display">2K 16:9</div>
+            <div class="text-[11px] text-gray-400 uppercase tracking-wider mt-1">CGI Стандарт</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="flex flex-wrap items-center justify-center gap-4">
+        <a href="#storyboard" class="px-8 py-3.5 rounded-full bg-gradient-to-r from-amber-500 to-amber-600 hover:from-amber-400 hover:to-amber-500 text-black font-semibold text-sm tracking-wide shadow-lg shadow-amber-500/20 transition-all transform hover:-translate-y-0.5">
+          Смотреть сториборд (12 кадров)
+        </a>
+        <a href="downloads/FILM1_STORYBOARD_REPORT.pdf" target="_blank" class="px-6 py-3.5 rounded-full bg-white/5 hover:bg-white/10 text-white font-medium text-sm border border-white/10 transition-all flex items-center gap-2">
+          <svg class="w-4 h-4 text-amber-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/>
+          </svg>
+          Скачать PDF-отчёт (2.88 MB)
+        </a>
+      </div>
+    </section>
+
+    <!-- ========================================================================= -->
+    <!-- 3. VOICEOVER & TIMELINE SCRUBBER (ФИЛЬМ 1: «ГОРДОСТЬ И ПУТЬ»)             -->
+    <!-- ========================================================================= -->
+    <section id="voiceover" class="py-16 px-4 max-w-6xl mx-auto">
+      <div class="mb-10 text-center">
+        <span class="text-xs uppercase tracking-[0.25em] text-amber-400 font-semibold">Синхронизация звука и видео</span>
+        <h2 class="text-3xl sm:text-4xl font-bold font-display text-white mt-2">Фильм 1: Текст диктора (45 секунд)</h2>
+        <p class="text-sm text-gray-400 mt-2 max-w-xl mx-auto">Нажмите на любой таймкод, чтобы перейти прямо к соответствующему кадру в сториборде</p>
+      </div>
+
+      <!-- Timeline Bar -->
+      <div class="double-bezel mb-8">
+        <div class="double-bezel-inner p-6">
+          <div class="grid grid-cols-2 md:grid-cols-6 gap-3">
+            <button onclick="scrollToShot('1.1')" class="p-3 rounded-xl bg-white/5 hover:bg-amber-500/10 border border-white/5 hover:border-amber-500/30 text-left transition-all group">
+              <div class="text-[10px] text-amber-400 font-mono font-bold">0:00 – 0:05</div>
+              <div class="text-xs font-semibold text-white mt-1 group-hover:text-amber-300">1. Детство</div>
+              <div class="text-[10px] text-gray-400 mt-0.5 truncate">Корни и семья</div>
+            </button>
+            <button onclick="scrollToShot('2.1')" class="p-3 rounded-xl bg-white/5 hover:bg-amber-500/10 border border-white/5 hover:border-amber-500/30 text-left transition-all group">
+              <div class="text-[10px] text-amber-400 font-mono font-bold">0:05 – 0:09</div>
+              <div class="text-xs font-semibold text-white mt-1 group-hover:text-amber-300">2. Юность</div>
+              <div class="text-[10px] text-gray-400 mt-0.5 truncate">Благословение</div>
+            </button>
+            <button onclick="scrollToShot('3.1')" class="p-3 rounded-xl bg-white/5 hover:bg-amber-500/10 border border-white/5 hover:border-amber-500/30 text-left transition-all group">
+              <div class="text-[10px] text-amber-400 font-mono font-bold">0:09 – 0:18</div>
+              <div class="text-xs font-semibold text-white mt-1 group-hover:text-amber-300">3. Флот</div>
+              <div class="text-[10px] text-gray-400 mt-0.5 truncate">Каспий & штурвал</div>
+            </button>
+            <button onclick="scrollToShot('4.1')" class="p-3 rounded-xl bg-white/5 hover:bg-amber-500/10 border border-white/5 hover:border-amber-500/30 text-left transition-all group">
+              <div class="text-[10px] text-amber-400 font-mono font-bold">0:18 – 0:27</div>
+              <div class="text-xs font-semibold text-white mt-1 group-hover:text-amber-300">4. Интеллект</div>
+              <div class="text-[10px] text-gray-400 mt-0.5 truncate">Шахматы & наука</div>
+            </button>
+            <button onclick="scrollToShot('5.1')" class="p-3 rounded-xl bg-white/5 hover:bg-amber-500/10 border border-white/5 hover:border-amber-500/30 text-left transition-all group">
+              <div class="text-[10px] text-amber-400 font-mono font-bold">0:27 – 0:36</div>
+              <div class="text-xs font-semibold text-white mt-1 group-hover:text-amber-300">5. Семья</div>
+              <div class="text-[10px] text-gray-400 mt-0.5 truncate">Трое любимых детей</div>
+            </button>
+            <button onclick="scrollToShot('6.1')" class="p-3 rounded-xl bg-white/5 hover:bg-amber-500/10 border border-white/5 hover:border-amber-500/30 text-left transition-all group">
+              <div class="text-[10px] text-amber-400 font-mono font-bold">0:36 – 0:45</div>
+              <div class="text-xs font-semibold text-white mt-1 group-hover:text-amber-300">6. Лидер</div>
+              <div class="text-[10px] text-gray-400 mt-0.5 truncate">Финал & поздравление</div>
+            </button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========================================================================= -->
+    <!-- 4. STORYBOARD SECTION (12 APPROVED PLATES IN 2K)                           -->
+    <!-- ========================================================================= -->
+    <section id="storyboard" class="py-16 px-4 max-w-7xl mx-auto">
+      <div class="flex flex-col md:flex-row md:items-end justify-between mb-10 gap-4">
+        <div>
+          <span class="text-xs uppercase tracking-[0.25em] text-amber-400 font-semibold">Режиссерский кадровый план</span>
+          <h2 class="text-3xl sm:text-4xl font-bold font-display text-white mt-2">Сториборд Фильма 1 (12 шотов)</h2>
+          <p class="text-sm text-gray-400 mt-1">Каждый план выверен по оптике, мизансцене, свету и физике пространства</p>
+        </div>
+
+        <!-- Filter buttons -->
+        <div class="flex flex-wrap gap-2 text-xs">
+          <button onclick="filterScene('all')" class="scene-filter-btn px-4 py-2 rounded-full bg-amber-500 text-black font-semibold transition-all" data-scene="all">Все (12)</button>
+          <button onclick="filterScene(1)" class="scene-filter-btn px-4 py-2 rounded-full bg-white/5 hover:bg-white/10 text-gray-300 transition-all" data-scene="1">1. Детство</button>
+          <button onclick="filterScene(2)" class="scene-filter-btn px-4 py-2 rounded-full bg-white/5 hover:bg-white/10 text-gray-300 transition-all" data-scene="2">2. Юность</button>
+          <button onclick="filterScene(3)" class="scene-filter-btn px-4 py-2 rounded-full bg-white/5 hover:bg-white/10 text-gray-300 transition-all" data-scene="3">3. Флот</button>
+          <button onclick="filterScene(4)" class="scene-filter-btn px-4 py-2 rounded-full bg-white/5 hover:bg-white/10 text-gray-300 transition-all" data-scene="4">4. Наука</button>
+          <button onclick="filterScene(5)" class="scene-filter-btn px-4 py-2 rounded-full bg-white/5 hover:bg-white/10 text-gray-300 transition-all" data-scene="5">5. Семья</button>
+          <button onclick="filterScene(6)" class="scene-filter-btn px-4 py-2 rounded-full bg-white/5 hover:bg-white/10 text-gray-300 transition-all" data-scene="6">6. Финал</button>
+        </div>
+      </div>
+
+      <!-- Storyboard Grid -->
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+
+        <div class="storyboard-card double-bezel" data-scene="1" id="shot-1.1">
+          <div class="double-bezel-inner flex flex-col h-full">
+            <!-- 16:9 Image Preview with Lightbox Trigger -->
+            <div class="relative aspect-video bg-black/60 overflow-hidden group cursor-pointer" onclick="openLightbox('assets/images/storyboard/01_shot1_1_scene1_ruslan_child_entry.jpg', 'Shot 1.1 // Первое появление героя', '«Сегодня особенный день — день рождения человека, чей жизненный путь вдохновляет.»')">
+              <img src="assets/images/storyboard/01_shot1_1_scene1_ruslan_child_entry.jpg" alt="Shot 1.1" class="w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-105" loading="lazy">
+              <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-black/30 opacity-60 group-hover:opacity-40 transition-opacity"></div>
+              
+              <!-- Badges on Image -->
+              <div class="absolute top-3 left-3 flex items-center gap-2">
+                <span class="px-2.5 py-1 rounded-md bg-black/70 backdrop-blur-md text-[11px] font-mono font-bold text-amber-400 border border-white/10">Shot 1.1</span>
+                <span class="px-2.5 py-1 rounded-md bg-black/70 backdrop-blur-md text-[11px] font-mono text-gray-300 border border-white/10">0:00 – 0:02.5</span>
+              </div>
+              <div class="absolute top-3 right-3 opacity-0 group-hover:opacity-100 transition-opacity">
+                <span class="p-2 rounded-full bg-black/70 backdrop-blur-md text-white flex items-center justify-center border border-white/20">
+                  <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0zM10 7v3m0 0v3m0-3h3m-3 0H7"/>
+                  </svg>
+                </span>
+              </div>
+              <div class="absolute bottom-3 left-3 right-3">
+                <div class="text-[11px] uppercase tracking-wider text-amber-300/90 font-medium">Сцена 1: Кухня детства 1985 г.</div>
+                <h3 class="text-base font-bold text-white font-display leading-tight">Первое появление героя</h3>
+              </div>
+            </div>
+
+            <!-- Card Content -->
+            <div class="p-6 flex-1 flex flex-col justify-between">
+              <!-- Voiceover Box -->
+              <div class="p-3.5 rounded-xl bg-amber-500/10 border border-amber-500/20 mb-4">
+                <div class="flex items-center gap-1.5 text-[10px] uppercase tracking-wider text-amber-400 font-bold mb-1">
+                  <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 11a7 7 0 01-7 7m0 0a7 7 0 01-7-7m7 7v4m0 0H8m4 0h4m-4-8a3 3 0 100-6 3 3 0 000 6z"/>
+                  </svg>
+                  Текст диктора
+                </div>
+                <p class="text-xs text-amber-100 font-medium italic leading-relaxed">«Сегодня особенный день — день рождения человека, чей жизненный путь вдохновляет.»</p>
+              </div>
+
+              <!-- Direction Details -->
+              <div class="space-y-2.5 text-xs text-gray-300 mb-4">
+                <div>
+                  <span class="text-gray-400 font-semibold">Камера и оптика:</span>
+                  <span class="text-gray-200"> 85mm f/2.0 · Medium Close-Up · Мягкий фронтальный наезд (Push-In) на уровне глаз 10-летнего ребенка из коридора.</span>
+                </div>
+                <div>
+                  <span class="text-gray-400 font-semibold">Мизансцена и действие:</span>
+                  <span class="text-gray-200"> 10-летний Руслан в нарядном жилете заглядывает из прихожей в залитую утренним светом кухню. На лице — восторг, предвкушение праздника и открытая радостная улыбка.</span>
+                </div>
+                <div>
+                  <span class="text-gray-400 font-semibold">Логика локации:</span>
+                  <span class="text-gray-300"> Обеденный стол остаётся строго за кадром, обеспечивая чистый переход к следующему плану без пространственных конфликтов.</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="storyboard-card double-bezel" data-scene="1" id="shot-1.2">
+          <div class="double-bezel-inner flex flex-col h-full">
+            <!-- 16:9 Image Preview with Lightbox Trigger -->
+            <div class="relative aspect-video bg-black/60 overflow-hidden group cursor-pointer" onclick="openLightbox('assets/images/storyboard/02_shot1_2_scene1_family_birthday_table.jpg', 'Shot 1.2 // Семейный праздник за столом', '«Всё началось с крепких корней...»')">
+              <img src="assets/images/storyboard/02_shot1_2_scene1_family_birthday_table.jpg" alt="Shot 1.2" class="w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-105" loading="lazy">
+              <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-black/30 opacity-60 group-hover:opacity-40 transition-opacity"></div>
+              
+              <!-- Badges on Image -->
+              <div class="absolute top-3 left-3 flex items-center gap-2">
+                <span class="px-2.5 py-1 rounded-md bg-black/70 backdrop-blur-md text-[11px] font-mono font-bold text-amber-400 border border-white/10">Shot 1.2</span>
+                <span class="px-2.5 py-1 rounded-md bg-black/70 backdrop-blur-md text-[11px] font-mono text-gray-300 border border-white/10">0:02.5 – 0:05.0</span>
+              </div>
+              <div class="absolute top-3 right-3 opacity-0 group-hover:opacity-100 transition-opacity">
+                <span class="p-2 rounded-full bg-black/70 backdrop-blur-md text-white flex items-center justify-center border border-white/20">
+                  <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0zM10 7v3m0 0v3m0-3h3m-3 0H7"/>
+                  </svg>
+                </span>
+              </div>
+              <div class="absolute bottom-3 left-3 right-3">
+                <div class="text-[11px] uppercase tracking-wider text-amber-300/90 font-medium">Сцена 1: Кухня детства 1985 г.</div>
+                <h3 class="text-base font-bold text-white font-display leading-tight">Семейный праздник за столом</h3>
+              </div>
+            </div>
+
+            <!-- Card Content -->
+            <div class="p-6 flex-1 flex flex-col justify-between">
+              <!-- Voiceover Box -->
+              <div class="p-3.5 rounded-xl bg-amber-500/10 border border-amber-500/20 mb-4">
+                <div class="flex items-center gap-1.5 text-[10px] uppercase tracking-wider text-amber-400 font-bold mb-1">
+                  <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 11a7 7 0 01-7 7m0 0a7 7 0 01-7-7m7 7v4m0 0H8m4 0h4m-4-8a3 3 0 100-6 3 3 0 000 6z"/>
+                  </svg>
+                  Текст диктора
+                </div>
+                <p class="text-xs text-amber-100 font-medium italic leading-relaxed">«Всё началось с крепких корней...»</p>
+              </div>
+
+              <!-- Direction Details -->
+              <div class="space-y-2.5 text-xs text-gray-300 mb-4">
+                <div>
+                  <span class="text-gray-400 font-semibold">Камера и оптика:</span>
+                  <span class="text-gray-200"> 35mm f/2.8 · Medium Wide Tableau · Непрерывный полукруговой облет (Orbit Arc Pan 180°), раскрывающий весь ансамбль кухни.</span>
+                </div>
+                <div>
+                  <span class="text-gray-400 font-semibold">Мизансцена и действие:</span>
+                  <span class="text-gray-200"> Руслан стоит слева у круглого деревянного стола. Молодая мама с улыбкой ставит в центр торт со свежей клубникой. Молодой папа Бакытжан наливает ароматный чай из самовара в фарфоровые пиалы. 6-летняя сестренка Алина хлопает в ладоши.</span>
+                </div>
+                <div>
+                  <span class="text-gray-400 font-semibold">Логика локации:</span>
+                  <span class="text-gray-300"> Стол неподвижен, в окнах 3-го этажа — ноябрьское утреннее солнце, золотистые кроны алматинских дворов и заснеженные вершины Алатау.</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="storyboard-card double-bezel" data-scene="2" id="shot-2.1">
+          <div class="double-bezel-inner flex flex-col h-full">
+            <!-- 16:9 Image Preview with Lightbox Trigger -->
+            <div class="relative aspect-video bg-black/60 overflow-hidden group cursor-pointer" onclick="openLightbox('assets/images/storyboard/03_shot2_1_scene2_ruslan_youth_portrait.jpg', 'Shot 2.1 // Становление характера (19 лет)', '«...безграничной любви и нежной заботы мамы...»')">
+              <img src="assets/images/storyboard/03_shot2_1_scene2_ruslan_youth_portrait.jpg" alt="Shot 2.1" class="w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-105" loading="lazy">
+              <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-black/30 opacity-60 group-hover:opacity-40 transition-opacity"></div>
+              
+              <!-- Badges on Image -->
+              <div class="absolute top-3 left-3 flex items-center gap-2">
+                <span class="px-2.5 py-1 rounded-md bg-black/70 backdrop-blur-md text-[11px] font-mono font-bold text-amber-400 border border-white/10">Shot 2.1</span>
+                <span class="px-2.5 py-1 rounded-md bg-black/70 backdrop-blur-md text-[11px] font-mono text-gray-300 border border-white/10">0:05 – 0:07.0</span>
+              </div>
+              <div class="absolute top-3 right-3 opacity-0 group-hover:opacity-100 transition-opacity">
+                <span class="p-2 rounded-full bg-black/70 backdrop-blur-md text-white flex items-center justify-center border border-white/20">
+                  <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0zM10 7v3m0 0v3m0-3h3m-3 0H7"/>
+                  </svg>
+                </span>
+              </div>
+              <div class="absolute bottom-3 left-3 right-3">
+                <div class="text-[11px] uppercase tracking-wider text-amber-300/90 font-medium">Сцена 2: Юность и Семейный Зал 1995 г.</div>
+                <h3 class="text-base font-bold text-white font-display leading-tight">Становление характера (19 лет)</h3>
+              </div>
+            </div>
+
+            <!-- Card Content -->
+            <div class="p-6 flex-1 flex flex-col justify-between">
+              <!-- Voiceover Box -->
+              <div class="p-3.5 rounded-xl bg-amber-500/10 border border-amber-500/20 mb-4">
+                <div class="flex items-center gap-1.5 text-[10px] uppercase tracking-wider text-amber-400 font-bold mb-1">
+                  <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 11a7 7 0 01-7 7m0 0a7 7 0 01-7-7m7 7v4m0 0H8m4 0h4m-4-8a3 3 0 100-6 3 3 0 000 6z"/>
+                  </svg>
+                  Текст диктора
+                </div>
+                <p class="text-xs text-amber-100 font-medium italic leading-relaxed">«...безграничной любви и нежной заботы мамы...»</p>
+              </div>
+
+              <!-- Direction Details -->
+              <div class="space-y-2.5 text-xs text-gray-300 mb-4">
+                <div>
+                  <span class="text-gray-400 font-semibold">Камера и оптика:</span>
+                  <span class="text-gray-200"> 85mm f/2.0 · Medium Close-Up · Выезд камеры из мягкой световой волны навстречу герою на уровне груди.</span>
+                </div>
+                <div>
+                  <span class="text-gray-400 font-semibold">Мизансцена и действие:</span>
+                  <span class="text-gray-200"> Из световой арки выходит 19-летний студент Руслан в аутентичном вязаном свитере 90-х с геометрическим орнаментом. Волевой взгляд, открытая улыбка и глубокая сыновняя благодарность.</span>
+                </div>
+                <div>
+                  <span class="text-gray-400 font-semibold">Логика локации:</span>
+                  <span class="text-gray-300"> Фокус на возмужавшем герое, мягкий боке полированной ореховой стенки с книгами.</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="storyboard-card double-bezel" data-scene="2" id="shot-2.2">
+          <div class="double-bezel-inner flex flex-col h-full">
+            <!-- 16:9 Image Preview with Lightbox Trigger -->
+            <div class="relative aspect-video bg-black/60 overflow-hidden group cursor-pointer" onclick="openLightbox('assets/images/storyboard/04_shot2_2_scene2_family_hall_blessing.jpg', 'Shot 2.2 // Родительское благословение (20 лет)', '«...мудрости и чести, заложенных отцом.»')">
+              <img src="assets/images/storyboard/04_shot2_2_scene2_family_hall_blessing.jpg" alt="Shot 2.2" class="w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-105" loading="lazy">
+              <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-black/30 opacity-60 group-hover:opacity-40 transition-opacity"></div>
+              
+              <!-- Badges on Image -->
+              <div class="absolute top-3 left-3 flex items-center gap-2">
+                <span class="px-2.5 py-1 rounded-md bg-black/70 backdrop-blur-md text-[11px] font-mono font-bold text-amber-400 border border-white/10">Shot 2.2</span>
+                <span class="px-2.5 py-1 rounded-md bg-black/70 backdrop-blur-md text-[11px] font-mono text-gray-300 border border-white/10">0:07.0 – 0:09.0</span>
+              </div>
+              <div class="absolute top-3 right-3 opacity-0 group-hover:opacity-100 transition-opacity">
+                <span class="p-2 rounded-full bg-black/70 backdrop-blur-md text-white flex items-center justify-center border border-white/20">
+                  <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0zM10 7v3m0 0v3m0-3h3m-3 0H7"/>
+                  </svg>
+                </span>
+              </div>
+              <div class="absolute bottom-3 left-3 right-3">
+                <div class="text-[11px] uppercase tracking-wider text-amber-300/90 font-medium">Сцена 2: Юность и Семейный Зал 1995 г.</div>
+                <h3 class="text-base font-bold text-white font-display leading-tight">Родительское благословение (20 лет)</h3>
+              </div>
+            </div>
+
+            <!-- Card Content -->
+            <div class="p-6 flex-1 flex flex-col justify-between">
+              <!-- Voiceover Box -->
+              <div class="p-3.5 rounded-xl bg-amber-500/10 border border-amber-500/20 mb-4">
+                <div class="flex items-center gap-1.5 text-[10px] uppercase tracking-wider text-amber-400 font-bold mb-1">
+                  <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 11a7 7 0 01-7 7m0 0a7 7 0 01-7-7m7 7v4m0 0H8m4 0h4m-4-8a3 3 0 100-6 3 3 0 000 6z"/>
+                  </svg>
+                  Текст диктора
+                </div>
+                <p class="text-xs text-amber-100 font-medium italic leading-relaxed">«...мудрости и чести, заложенных отцом.»</p>
+              </div>
+
+              <!-- Direction Details -->
+              <div class="space-y-2.5 text-xs text-gray-300 mb-4">
+                <div>
+                  <span class="text-gray-400 font-semibold">Камера и оптика:</span>
+                  <span class="text-gray-200"> 35mm f/2.8 · Medium Wide Ensemble · Статичный благородный фронтальный план с медленным наездом (Slow Push-In).</span>
+                </div>
+                <div>
+                  <span class="text-gray-400 font-semibold">Мизансцена и действие:</span>
+                  <span class="text-gray-200"> Мама (элегантная блондинка с объемной укладкой в изумрудном платье) нежно обнимает сына за плечо. Отец Бакытжан (строгий академик в темно-синем костюме) с гордостью кладет руку на плечо Руслана. 16-летняя сестра Алина улыбается брату.</span>
+                </div>
+                <div>
+                  <span class="text-gray-400 font-semibold">Логика локации:</span>
+                  <span class="text-gray-300"> На столе горит свеча к 20-летию сына, уютный алматинский вечер интеллигентной семьи 90-х.</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="storyboard-card double-bezel" data-scene="3" id="shot-3.1">
+          <div class="double-bezel-inner flex flex-col h-full">
+            <!-- 16:9 Image Preview with Lightbox Trigger -->
+            <div class="relative aspect-video bg-black/60 overflow-hidden group cursor-pointer" onclick="openLightbox('assets/images/storyboard/05_shot3_1_scene3_navy_officer_deck.jpg', 'Shot 3.1 // Офицер флота на вахте', '«Белоснежная форма офицера морского флота открыла бескрайние горизонты...»')">
+              <img src="assets/images/storyboard/05_shot3_1_scene3_navy_officer_deck.jpg" alt="Shot 3.1" class="w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-105" loading="lazy">
+              <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-black/30 opacity-60 group-hover:opacity-40 transition-opacity"></div>
+              
+              <!-- Badges on Image -->
+              <div class="absolute top-3 left-3 flex items-center gap-2">
+                <span class="px-2.5 py-1 rounded-md bg-black/70 backdrop-blur-md text-[11px] font-mono font-bold text-amber-400 border border-white/10">Shot 3.1</span>
+                <span class="px-2.5 py-1 rounded-md bg-black/70 backdrop-blur-md text-[11px] font-mono text-gray-300 border border-white/10">0:09 – 0:13.5</span>
+              </div>
+              <div class="absolute top-3 right-3 opacity-0 group-hover:opacity-100 transition-opacity">
+                <span class="p-2 rounded-full bg-black/70 backdrop-blur-md text-white flex items-center justify-center border border-white/20">
+                  <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0zM10 7v3m0 0v3m0-3h3m-3 0H7"/>
+                  </svg>
+                </span>
+              </div>
+              <div class="absolute bottom-3 left-3 right-3">
+                <div class="text-[11px] uppercase tracking-wider text-amber-300/90 font-medium">Сцена 3: Флот («Казмортрансфлот»)</div>
+                <h3 class="text-base font-bold text-white font-display leading-tight">Офицер флота на вахте</h3>
+              </div>
+            </div>
+
+            <!-- Card Content -->
+            <div class="p-6 flex-1 flex flex-col justify-between">
+              <!-- Voiceover Box -->
+              <div class="p-3.5 rounded-xl bg-amber-500/10 border border-amber-500/20 mb-4">
+                <div class="flex items-center gap-1.5 text-[10px] uppercase tracking-wider text-amber-400 font-bold mb-1">
+                  <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 11a7 7 0 01-7 7m0 0a7 7 0 01-7-7m7 7v4m0 0H8m4 0h4m-4-8a3 3 0 100-6 3 3 0 000 6z"/>
+                  </svg>
+                  Текст диктора
+                </div>
+                <p class="text-xs text-amber-100 font-medium italic leading-relaxed">«Белоснежная форма офицера морского флота открыла бескрайние горизонты...»</p>
+              </div>
+
+              <!-- Direction Details -->
+              <div class="space-y-2.5 text-xs text-gray-300 mb-4">
+                <div>
+                  <span class="text-gray-400 font-semibold">Камера и оптика:</span>
+                  <span class="text-gray-200"> 50mm f/2.2 · Medium Cowboy Shot · Круговой облет справа налево с контровым рассветным золотым светом.</span>
+                </div>
+                <div>
+                  <span class="text-gray-400 font-semibold">Мизансцена и действие:</span>
+                  <span class="text-gray-200"> Руслан в строгом соответствии с Character Sheet: белоснежная форменная рубашка со служебными погонами, галстук с золотым зажимом-якорем, фуражка с золотой кокардой. Рука лежит на леерах. Свежий морской бриз колышет галстук, волевой взгляд устремлен в морскую даль.</span>
+                </div>
+                <div>
+                  <span class="text-gray-400 font-semibold">Логика локации:</span>
+                  <span class="text-gray-300"> Тиковая палуба судна «Казмортрансфлот», синие каспийские волны с белыми гребнями, восходящее солнце.</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="storyboard-card double-bezel" data-scene="3" id="shot-3.2">
+          <div class="double-bezel-inner flex flex-col h-full">
+            <!-- 16:9 Image Preview with Lightbox Trigger -->
+            <div class="relative aspect-video bg-black/60 overflow-hidden group cursor-pointer" onclick="openLightbox('assets/images/storyboard/06_shot3_2_scene3_caspian_sunrise_vista.jpg', 'Shot 3.2 // Бескрайние горизонты Каспия', '«...и научила уверенно держать штурвал судьбы.»')">
+              <img src="assets/images/storyboard/06_shot3_2_scene3_caspian_sunrise_vista.jpg" alt="Shot 3.2" class="w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-105" loading="lazy">
+              <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-black/30 opacity-60 group-hover:opacity-40 transition-opacity"></div>
+              
+              <!-- Badges on Image -->
+              <div class="absolute top-3 left-3 flex items-center gap-2">
+                <span class="px-2.5 py-1 rounded-md bg-black/70 backdrop-blur-md text-[11px] font-mono font-bold text-amber-400 border border-white/10">Shot 3.2</span>
+                <span class="px-2.5 py-1 rounded-md bg-black/70 backdrop-blur-md text-[11px] font-mono text-gray-300 border border-white/10">0:13.5 – 0:18.0</span>
+              </div>
+              <div class="absolute top-3 right-3 opacity-0 group-hover:opacity-100 transition-opacity">
+                <span class="p-2 rounded-full bg-black/70 backdrop-blur-md text-white flex items-center justify-center border border-white/20">
+                  <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0zM10 7v3m0 0v3m0-3h3m-3 0H7"/>
+                  </svg>
+                </span>
+              </div>
+              <div class="absolute bottom-3 left-3 right-3">
+                <div class="text-[11px] uppercase tracking-wider text-amber-300/90 font-medium">Сцена 3: Флот («Казмортрансфлот»)</div>
+                <h3 class="text-base font-bold text-white font-display leading-tight">Бескрайние горизонты Каспия</h3>
+              </div>
+            </div>
+
+            <!-- Card Content -->
+            <div class="p-6 flex-1 flex flex-col justify-between">
+              <!-- Voiceover Box -->
+              <div class="p-3.5 rounded-xl bg-amber-500/10 border border-amber-500/20 mb-4">
+                <div class="flex items-center gap-1.5 text-[10px] uppercase tracking-wider text-amber-400 font-bold mb-1">
+                  <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 11a7 7 0 01-7 7m0 0a7 7 0 01-7-7m7 7v4m0 0H8m4 0h4m-4-8a3 3 0 100-6 3 3 0 000 6z"/>
+                  </svg>
+                  Текст диктора
+                </div>
+                <p class="text-xs text-amber-100 font-medium italic leading-relaxed">«...и научила уверенно держать штурвал судьбы.»</p>
+              </div>
+
+              <!-- Direction Details -->
+              <div class="space-y-2.5 text-xs text-gray-300 mb-4">
+                <div>
+                  <span class="text-gray-400 font-semibold">Камера и оптика:</span>
+                  <span class="text-gray-200"> 24mm f/4.0 · Extreme Wide Vista · Высокий парящий кран (High Crane / Jib Back & Up), взмывающий над палубой.</span>
+                </div>
+                <div>
+                  <span class="text-gray-400 font-semibold">Мизансцена и действие:</span>
+                  <span class="text-gray-200"> Грандиозная 180-градусная панорама Каспийского моря на рассвете. Золотой диск солнца поднимается над зеркалом воды, корабль рассекает синюю волну, над водой кружат чайки. Офицер Руслан стоит на носу корабля перед бескрайним миром.</span>
+                </div>
+                <div>
+                  <span class="text-gray-400 font-semibold">Логика локации:</span>
+                  <span class="text-gray-300"> Символ масштабного кругозора, дисциплины и лидерства.</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="storyboard-card double-bezel" data-scene="4" id="shot-4.1">
+          <div class="double-bezel-inner flex flex-col h-full">
+            <!-- 16:9 Image Preview with Lightbox Trigger -->
+            <div class="relative aspect-video bg-black/60 overflow-hidden group cursor-pointer" onclick="openLightbox('assets/images/storyboard/07_shot4_1_scene4_chess_grandmaster.jpg', 'Shot 4.1 // Гроссмейстер за доской', '«...а шахматы, спорт и докторская степень...»')">
+              <img src="assets/images/storyboard/07_shot4_1_scene4_chess_grandmaster.jpg" alt="Shot 4.1" class="w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-105" loading="lazy">
+              <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-black/30 opacity-60 group-hover:opacity-40 transition-opacity"></div>
+              
+              <!-- Badges on Image -->
+              <div class="absolute top-3 left-3 flex items-center gap-2">
+                <span class="px-2.5 py-1 rounded-md bg-black/70 backdrop-blur-md text-[11px] font-mono font-bold text-amber-400 border border-white/10">Shot 4.1</span>
+                <span class="px-2.5 py-1 rounded-md bg-black/70 backdrop-blur-md text-[11px] font-mono text-gray-300 border border-white/10">0:18 – 0:22.5</span>
+              </div>
+              <div class="absolute top-3 right-3 opacity-0 group-hover:opacity-100 transition-opacity">
+                <span class="p-2 rounded-full bg-black/70 backdrop-blur-md text-white flex items-center justify-center border border-white/20">
+                  <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0zM10 7v3m0 0v3m0-3h3m-3 0H7"/>
+                  </svg>
+                </span>
+              </div>
+              <div class="absolute bottom-3 left-3 right-3">
+                <div class="text-[11px] uppercase tracking-wider text-amber-300/90 font-medium">Сцена 4: Интеллект, Наука и Спорт</div>
+                <h3 class="text-base font-bold text-white font-display leading-tight">Гроссмейстер за доской</h3>
+              </div>
+            </div>
+
+            <!-- Card Content -->
+            <div class="p-6 flex-1 flex flex-col justify-between">
+              <!-- Voiceover Box -->
+              <div class="p-3.5 rounded-xl bg-amber-500/10 border border-amber-500/20 mb-4">
+                <div class="flex items-center gap-1.5 text-[10px] uppercase tracking-wider text-amber-400 font-bold mb-1">
+                  <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 11a7 7 0 01-7 7m0 0a7 7 0 01-7-7m7 7v4m0 0H8m4 0h4m-4-8a3 3 0 100-6 3 3 0 000 6z"/>
+                  </svg>
+                  Текст диктора
+                </div>
+                <p class="text-xs text-amber-100 font-medium italic leading-relaxed">«...а шахматы, спорт и докторская степень...»</p>
+              </div>
+
+              <!-- Direction Details -->
+              <div class="space-y-2.5 text-xs text-gray-300 mb-4">
+                <div>
+                  <span class="text-gray-400 font-semibold">Камера и оптика:</span>
+                  <span class="text-gray-200"> 50mm f/2.2 · Over-the-Board Medium Close-Up · Медленный наезд через шахматные фигуры (Slow Push-In) с малой глубиной резкости.</span>
+                </div>
+                <div>
+                  <span class="text-gray-400 font-semibold">Мизансцена и действие:</span>
+                  <span class="text-gray-200"> Руслан (~32-35 лет в темно-сером блейзере и черной водолазке) делает точный выверенный ход ферзем. Поднимает взгляд в камеру — спокойная, мудрая улыбка стратега, просчитывающего жизнь на много ходов вперед.</span>
+                </div>
+                <div>
+                  <span class="text-gray-400 font-semibold">Логика локации:</span>
+                  <span class="text-gray-300"> Теплый конус света латунной лампы над доской, полированное дерево кабинета.</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="storyboard-card double-bezel" data-scene="4" id="shot-4.2">
+          <div class="double-bezel-inner flex flex-col h-full">
+            <!-- 16:9 Image Preview with Lightbox Trigger -->
+            <div class="relative aspect-video bg-black/60 overflow-hidden group cursor-pointer" onclick="openLightbox('assets/images/storyboard/08_shot4_2_scene4_academic_sports_study.jpg', 'Shot 4.2 // Характер созидателя и победы', '«...воспитали характер созидателя и победителя.»')">
+              <img src="assets/images/storyboard/08_shot4_2_scene4_academic_sports_study.jpg" alt="Shot 4.2" class="w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-105" loading="lazy">
+              <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-black/30 opacity-60 group-hover:opacity-40 transition-opacity"></div>
+              
+              <!-- Badges on Image -->
+              <div class="absolute top-3 left-3 flex items-center gap-2">
+                <span class="px-2.5 py-1 rounded-md bg-black/70 backdrop-blur-md text-[11px] font-mono font-bold text-amber-400 border border-white/10">Shot 4.2</span>
+                <span class="px-2.5 py-1 rounded-md bg-black/70 backdrop-blur-md text-[11px] font-mono text-gray-300 border border-white/10">0:22.5 – 0:27.0</span>
+              </div>
+              <div class="absolute top-3 right-3 opacity-0 group-hover:opacity-100 transition-opacity">
+                <span class="p-2 rounded-full bg-black/70 backdrop-blur-md text-white flex items-center justify-center border border-white/20">
+                  <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0zM10 7v3m0 0v3m0-3h3m-3 0H7"/>
+                  </svg>
+                </span>
+              </div>
+              <div class="absolute bottom-3 left-3 right-3">
+                <div class="text-[11px] uppercase tracking-wider text-amber-300/90 font-medium">Сцена 4: Интеллект, Наука и Спорт</div>
+                <h3 class="text-base font-bold text-white font-display leading-tight">Характер созидателя и победы</h3>
+              </div>
+            </div>
+
+            <!-- Card Content -->
+            <div class="p-6 flex-1 flex flex-col justify-between">
+              <!-- Voiceover Box -->
+              <div class="p-3.5 rounded-xl bg-amber-500/10 border border-amber-500/20 mb-4">
+                <div class="flex items-center gap-1.5 text-[10px] uppercase tracking-wider text-amber-400 font-bold mb-1">
+                  <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 11a7 7 0 01-7 7m0 0a7 7 0 01-7-7m7 7v4m0 0H8m4 0h4m-4-8a3 3 0 100-6 3 3 0 000 6z"/>
+                  </svg>
+                  Текст диктора
+                </div>
+                <p class="text-xs text-amber-100 font-medium italic leading-relaxed">«...воспитали характер созидателя и победителя.»</p>
+              </div>
+
+              <!-- Direction Details -->
+              <div class="space-y-2.5 text-xs text-gray-300 mb-4">
+                <div>
+                  <span class="text-gray-400 font-semibold">Камера и оптика:</span>
+                  <span class="text-gray-200"> 35mm f/2.8 · Tracking Dolly Right · Камера плавно скользит вправо вдоль стены кабинета, раскрывая масштаб достижений.</span>
+                </div>
+                <div>
+                  <span class="text-gray-400 font-semibold">Мизансцена и действие:</span>
+                  <span class="text-gray-200"> Руслан сидит за столом с реалистичной шахматной расстановкой 8×8 клеток. На стене — диплом доктора наук в золотой раме, в нишах — чемпионский пояс по боксу, кубки по поло и плаванию, книги по горному делу и управлению.</span>
+                </div>
+                <div>
+                  <span class="text-gray-400 font-semibold">Логика локации:</span>
+                  <span class="text-gray-300"> Баланс теплого интерьерного света и естественного дневного света из панорамного окна на предгорья.</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="storyboard-card double-bezel" data-scene="5" id="shot-5.1">
+          <div class="double-bezel-inner flex flex-col h-full">
+            <!-- 16:9 Image Preview with Lightbox Trigger -->
+            <div class="relative aspect-video bg-black/60 overflow-hidden group cursor-pointer" onclick="openLightbox('assets/images/storyboard/09_shot5_1_scene5_father_and_children_walk.jpg', 'Shot 5.1 // Счастливая прогулка по Терренкуру', '«Главное счастье и гордость Руслана — его трое детей...»')">
+              <img src="assets/images/storyboard/09_shot5_1_scene5_father_and_children_walk.jpg" alt="Shot 5.1" class="w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-105" loading="lazy">
+              <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-black/30 opacity-60 group-hover:opacity-40 transition-opacity"></div>
+              
+              <!-- Badges on Image -->
+              <div class="absolute top-3 left-3 flex items-center gap-2">
+                <span class="px-2.5 py-1 rounded-md bg-black/70 backdrop-blur-md text-[11px] font-mono font-bold text-amber-400 border border-white/10">Shot 5.1</span>
+                <span class="px-2.5 py-1 rounded-md bg-black/70 backdrop-blur-md text-[11px] font-mono text-gray-300 border border-white/10">0:27 – 0:31.5</span>
+              </div>
+              <div class="absolute top-3 right-3 opacity-0 group-hover:opacity-100 transition-opacity">
+                <span class="p-2 rounded-full bg-black/70 backdrop-blur-md text-white flex items-center justify-center border border-white/20">
+                  <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0zM10 7v3m0 0v3m0-3h3m-3 0H7"/>
+                  </svg>
+                </span>
+              </div>
+              <div class="absolute bottom-3 left-3 right-3">
+                <div class="text-[11px] uppercase tracking-wider text-amber-300/90 font-medium">Сцена 5: Семья и Трое Детей</div>
+                <h3 class="text-base font-bold text-white font-display leading-tight">Счастливая прогулка по Терренкуру</h3>
+              </div>
+            </div>
+
+            <!-- Card Content -->
+            <div class="p-6 flex-1 flex flex-col justify-between">
+              <!-- Voiceover Box -->
+              <div class="p-3.5 rounded-xl bg-amber-500/10 border border-amber-500/20 mb-4">
+                <div class="flex items-center gap-1.5 text-[10px] uppercase tracking-wider text-amber-400 font-bold mb-1">
+                  <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 11a7 7 0 01-7 7m0 0a7 7 0 01-7-7m7 7v4m0 0H8m4 0h4m-4-8a3 3 0 100-6 3 3 0 000 6z"/>
+                  </svg>
+                  Текст диктора
+                </div>
+                <p class="text-xs text-amber-100 font-medium italic leading-relaxed">«Главное счастье и гордость Руслана — его трое детей...»</p>
+              </div>
+
+              <!-- Direction Details -->
+              <div class="space-y-2.5 text-xs text-gray-300 mb-4">
+                <div>
+                  <span class="text-gray-400 font-semibold">Камера и оптика:</span>
+                  <span class="text-gray-200"> 35mm f/2.5 · Frontal Tracking Shot · Фронтальный трекинг в движении назад перед идущей семьей по каменному променаду.</span>
+                </div>
+                <div>
+                  <span class="text-gray-400 font-semibold">Мизансцена и действие:</span>
+                  <span class="text-gray-200"> Теплый золотой закат. Руслан (~47 лет в кашемировом джемпере) идет в окружении ВСЕХ ТРОИХ ДЕТЕЙ: старшая дочь держит отца под руку, старший сын в очках увлеченно беседует с отцом, а младший 11-летний сын в худи радостно шагает рядом, держа сестру за руку.</span>
+                </div>
+                <div>
+                  <span class="text-gray-400 font-semibold">Логика локации:</span>
+                  <span class="text-gray-300"> Тянь-шанские ели, горная речка, старинные фонари и розовый закат над пиками Заилийского Алатау.</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="storyboard-card double-bezel" data-scene="5" id="shot-5.2">
+          <div class="double-bezel-inner flex flex-col h-full">
+            <!-- 16:9 Image Preview with Lightbox Trigger -->
+            <div class="relative aspect-video bg-black/60 overflow-hidden group cursor-pointer" onclick="openLightbox('assets/images/storyboard/10_shot5_2_scene5_father_hugging_three_kids.jpg', 'Shot 5.2 // Отец — главный герой', '«...для которых отец всегда останется настоящим героем.»')">
+              <img src="assets/images/storyboard/10_shot5_2_scene5_father_hugging_three_kids.jpg" alt="Shot 5.2" class="w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-105" loading="lazy">
+              <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-black/30 opacity-60 group-hover:opacity-40 transition-opacity"></div>
+              
+              <!-- Badges on Image -->
+              <div class="absolute top-3 left-3 flex items-center gap-2">
+                <span class="px-2.5 py-1 rounded-md bg-black/70 backdrop-blur-md text-[11px] font-mono font-bold text-amber-400 border border-white/10">Shot 5.2</span>
+                <span class="px-2.5 py-1 rounded-md bg-black/70 backdrop-blur-md text-[11px] font-mono text-gray-300 border border-white/10">0:31.5 – 0:36.0</span>
+              </div>
+              <div class="absolute top-3 right-3 opacity-0 group-hover:opacity-100 transition-opacity">
+                <span class="p-2 rounded-full bg-black/70 backdrop-blur-md text-white flex items-center justify-center border border-white/20">
+                  <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0zM10 7v3m0 0v3m0-3h3m-3 0H7"/>
+                  </svg>
+                </span>
+              </div>
+              <div class="absolute bottom-3 left-3 right-3">
+                <div class="text-[11px] uppercase tracking-wider text-amber-300/90 font-medium">Сцена 5: Семья и Трое Детей</div>
+                <h3 class="text-base font-bold text-white font-display leading-tight">Отец — главный герой</h3>
+              </div>
+            </div>
+
+            <!-- Card Content -->
+            <div class="p-6 flex-1 flex flex-col justify-between">
+              <!-- Voiceover Box -->
+              <div class="p-3.5 rounded-xl bg-amber-500/10 border border-amber-500/20 mb-4">
+                <div class="flex items-center gap-1.5 text-[10px] uppercase tracking-wider text-amber-400 font-bold mb-1">
+                  <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 11a7 7 0 01-7 7m0 0a7 7 0 01-7-7m7 7v4m0 0H8m4 0h4m-4-8a3 3 0 100-6 3 3 0 000 6z"/>
+                  </svg>
+                  Текст диктора
+                </div>
+                <p class="text-xs text-amber-100 font-medium italic leading-relaxed">«...для которых отец всегда останется настоящим героем.»</p>
+              </div>
+
+              <!-- Direction Details -->
+              <div class="space-y-2.5 text-xs text-gray-300 mb-4">
+                <div>
+                  <span class="text-gray-400 font-semibold">Камера и оптика:</span>
+                  <span class="text-gray-200"> 35mm f/2.8 · Wide Hero Tableau · Плавный подъем на кране вверх (Crane Up & Tilt Down) в закатное небо.</span>
+                </div>
+                <div>
+                  <span class="text-gray-400 font-semibold">Мизансцена и действие:</span>
+                  <span class="text-gray-200"> Руслан с широкой счастливой улыбкой обнимает всех троих детей вместе. Неподдельная семейная гармония, теплота и гордость отца за продолжение своего рода.</span>
+                </div>
+                <div>
+                  <span class="text-gray-400 font-semibold">Логика локации:</span>
+                  <span class="text-gray-300"> Заснеженные пики Алатау пылают альпийским золотым сиянием (Alpenglow), создавая эпический визуальный масштаб.</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="storyboard-card double-bezel" data-scene="6" id="shot-6.1">
+          <div class="double-bezel-inner flex flex-col h-full">
+            <!-- 16:9 Image Preview with Lightbox Trigger -->
+            <div class="relative aspect-video bg-black/60 overflow-hidden group cursor-pointer" onclick="openLightbox('assets/images/storyboard/11_shot6_1_scene6_executive_leader_focus.jpg', 'Shot 6.1 // Взгляд первого руководителя', '«А впереди — новые горизонты и управление масштабными проектами...»')">
+              <img src="assets/images/storyboard/11_shot6_1_scene6_executive_leader_focus.jpg" alt="Shot 6.1" class="w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-105" loading="lazy">
+              <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-black/30 opacity-60 group-hover:opacity-40 transition-opacity"></div>
+              
+              <!-- Badges on Image -->
+              <div class="absolute top-3 left-3 flex items-center gap-2">
+                <span class="px-2.5 py-1 rounded-md bg-black/70 backdrop-blur-md text-[11px] font-mono font-bold text-amber-400 border border-white/10">Shot 6.1</span>
+                <span class="px-2.5 py-1 rounded-md bg-black/70 backdrop-blur-md text-[11px] font-mono text-gray-300 border border-white/10">0:36 – 0:40.5</span>
+              </div>
+              <div class="absolute top-3 right-3 opacity-0 group-hover:opacity-100 transition-opacity">
+                <span class="p-2 rounded-full bg-black/70 backdrop-blur-md text-white flex items-center justify-center border border-white/20">
+                  <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0zM10 7v3m0 0v3m0-3h3m-3 0H7"/>
+                  </svg>
+                </span>
+              </div>
+              <div class="absolute bottom-3 left-3 right-3">
+                <div class="text-[11px] uppercase tracking-wider text-amber-300/90 font-medium">Сцена 6: Лидер Индустрии (Финал)</div>
+                <h3 class="text-base font-bold text-white font-display leading-tight">Взгляд первого руководителя</h3>
+              </div>
+            </div>
+
+            <!-- Card Content -->
+            <div class="p-6 flex-1 flex flex-col justify-between">
+              <!-- Voiceover Box -->
+              <div class="p-3.5 rounded-xl bg-amber-500/10 border border-amber-500/20 mb-4">
+                <div class="flex items-center gap-1.5 text-[10px] uppercase tracking-wider text-amber-400 font-bold mb-1">
+                  <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 11a7 7 0 01-7 7m0 0a7 7 0 01-7-7m7 7v4m0 0H8m4 0h4m-4-8a3 3 0 100-6 3 3 0 000 6z"/>
+                  </svg>
+                  Текст диктора
+                </div>
+                <p class="text-xs text-amber-100 font-medium italic leading-relaxed">«А впереди — новые горизонты и управление масштабными проектами...»</p>
+              </div>
+
+              <!-- Direction Details -->
+              <div class="space-y-2.5 text-xs text-gray-300 mb-4">
+                <div>
+                  <span class="text-gray-400 font-semibold">Камера и оптика:</span>
+                  <span class="text-gray-200"> 50mm f/2.5 · Low Angle Hero Push-In · Медленный наезд под небольшим восходящим углом (Low Angle Hero Push-In), прямой контакт глаз со зрителем.</span>
+                </div>
+                <div>
+                  <span class="text-gray-400 font-semibold">Мизансцена и действие:</span>
+                  <span class="text-gray-200"> Руслан (51 год) в темно-синем костюме сидит строго во главе Т-образного стола в кожаном кресле. Руки на кожаном бюваре. Взгляд устремлен прямо в камеру — уверенная, спокойная и мудрая улыбка созидателя государственного масштаба.</span>
+                </div>
+                <div>
+                  <span class="text-gray-400 font-semibold">Логика локации:</span>
+                  <span class="text-gray-300"> На фоне — мягкий боке светящейся карты Казахстана и закатный свет панорамного остекления.</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="storyboard-card double-bezel" data-scene="6" id="shot-6.2">
+          <div class="double-bezel-inner flex flex-col h-full">
+            <!-- 16:9 Image Preview with Lightbox Trigger -->
+            <div class="relative aspect-video bg-black/60 overflow-hidden group cursor-pointer" onclick="openLightbox('assets/images/storyboard/12_shot6_2_scene6_mining_hq_epic_finale.jpg', 'Shot 6.2 // Эпический финал и триумф', '«...в горнорудной индустрии на благо страны. С днем рождения, Руслан!»')">
+              <img src="assets/images/storyboard/12_shot6_2_scene6_mining_hq_epic_finale.jpg" alt="Shot 6.2" class="w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-105" loading="lazy">
+              <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-black/30 opacity-60 group-hover:opacity-40 transition-opacity"></div>
+              
+              <!-- Badges on Image -->
+              <div class="absolute top-3 left-3 flex items-center gap-2">
+                <span class="px-2.5 py-1 rounded-md bg-black/70 backdrop-blur-md text-[11px] font-mono font-bold text-amber-400 border border-white/10">Shot 6.2</span>
+                <span class="px-2.5 py-1 rounded-md bg-black/70 backdrop-blur-md text-[11px] font-mono text-gray-300 border border-white/10">0:40.5 – 0:45.0</span>
+              </div>
+              <div class="absolute top-3 right-3 opacity-0 group-hover:opacity-100 transition-opacity">
+                <span class="p-2 rounded-full bg-black/70 backdrop-blur-md text-white flex items-center justify-center border border-white/20">
+                  <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0zM10 7v3m0 0v3m0-3h3m-3 0H7"/>
+                  </svg>
+                </span>
+              </div>
+              <div class="absolute bottom-3 left-3 right-3">
+                <div class="text-[11px] uppercase tracking-wider text-amber-300/90 font-medium">Сцена 6: Лидер Индустрии (Финал)</div>
+                <h3 class="text-base font-bold text-white font-display leading-tight">Эпический финал и триумф</h3>
+              </div>
+            </div>
+
+            <!-- Card Content -->
+            <div class="p-6 flex-1 flex flex-col justify-between">
+              <!-- Voiceover Box -->
+              <div class="p-3.5 rounded-xl bg-amber-500/10 border border-amber-500/20 mb-4">
+                <div class="flex items-center gap-1.5 text-[10px] uppercase tracking-wider text-amber-400 font-bold mb-1">
+                  <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 11a7 7 0 01-7 7m0 0a7 7 0 01-7-7m7 7v4m0 0H8m4 0h4m-4-8a3 3 0 100-6 3 3 0 000 6z"/>
+                  </svg>
+                  Текст диктора
+                </div>
+                <p class="text-xs text-amber-100 font-medium italic leading-relaxed">«...в горнорудной индустрии на благо страны. С днем рождения, Руслан!»</p>
+              </div>
+
+              <!-- Direction Details -->
+              <div class="space-y-2.5 text-xs text-gray-300 mb-4">
+                <div>
+                  <span class="text-gray-400 font-semibold">Камера и оптика:</span>
+                  <span class="text-gray-200"> 24mm f/4.0 · Epic Establishing Finale · Медленный торжественный отъезд камеры назад и вверх (Slow Dolly Back & Crane Up).</span>
+                </div>
+                <div>
+                  <span class="text-gray-400 font-semibold">Мизансцена и действие:</span>
+                  <span class="text-gray-200"> Руслан сидит во главе Т-образного стола в центре кабинета. На стене — большая ТВ-панель с картой Казахстана, под ней на комоде — 3D-макет карьера, через панорамные окна льется золотой закатный свет над ступенчатыми уступами карьера и горами. В верхней трети — чистое небо под финальный титр.</span>
+                </div>
+                <div>
+                  <span class="text-gray-400 font-semibold">Логика локации:</span>
+                  <span class="text-gray-300"> Монументальный образ служения Отечеству и созидательного труда.</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ========================================================================= -->
+    <!-- 5. CHARACTER SHEETS (15 APPROVED 3-ANGLE MODEL SHEETS)                    -->
+    <!-- ========================================================================= -->
+    <section id="characters" class="py-16 px-4 max-w-7xl mx-auto">
+      <div class="flex flex-col md:flex-row md:items-end justify-between mb-10 gap-4">
+        <div>
+          <span class="text-xs uppercase tracking-[0.25em] text-amber-400 font-semibold">Модельные листы персонажей</span>
+          <h2 class="text-3xl sm:text-4xl font-bold font-display text-white mt-2">Character Sheets (15 листов)</h2>
+          <p class="text-sm text-gray-400 mt-1">Точное сохранение портретного сходства, пропорций и аутентичной одежды</p>
+        </div>
+
+        <!-- Filter buttons -->
+        <div class="flex flex-wrap gap-2 text-xs">
+          <button onclick="filterChar('all')" class="char-filter-btn px-4 py-2 rounded-full bg-amber-500 text-black font-semibold transition-all" data-category="all">Все (15)</button>
+          <button onclick="filterChar('ruslan')" class="char-filter-btn px-4 py-2 rounded-full bg-white/5 hover:bg-white/10 text-gray-300 transition-all" data-category="ruslan">Руслан (6 эпох)</button>
+          <button onclick="filterChar('family')" class="char-filter-btn px-4 py-2 rounded-full bg-white/5 hover:bg-white/10 text-gray-300 transition-all" data-category="family">Родители & Сестра</button>
+          <button onclick="filterChar('children')" class="char-filter-btn px-4 py-2 rounded-full bg-white/5 hover:bg-white/10 text-gray-300 transition-all" data-category="children">Трое Детей</button>
+        </div>
+      </div>
+
+      <!-- Characters Grid -->
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+
+        <div class="char-card double-bezel" data-category="ruslan">
+          <div class="double-bezel-inner flex flex-col h-full">
+            <div class="relative aspect-video bg-black/60 overflow-hidden cursor-pointer group" onclick="openLightbox('assets/images/characters/01_scene1_ruslan_child_10yo.jpg', 'Руслан в детстве (10 лет)', 'Светлый, энергичный мальчик 10 лет с открытым взглядом. Нарядная белая рубашка, винтажный вязаный жилет. Любознательный, горящие глаза.')">
+              <img src="assets/images/characters/01_scene1_ruslan_child_10yo.jpg" alt="Руслан в детстве (10 лет)" class="w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-105" loading="lazy">
+              <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-60"></div>
+              <div class="absolute top-3 left-3">
+                <span class="px-2.5 py-1 rounded-md bg-black/70 backdrop-blur-md text-[10px] font-mono text-amber-400 border border-white/10">1985 год · Сцена 1</span>
+              </div>
+            </div>
+            <div class="p-5 flex-1 flex flex-col justify-between">
+              <div>
+                <h3 class="text-base font-bold text-white font-display mb-1.5">Руслан в детстве (10 лет)</h3>
+                <p class="text-xs text-gray-400 leading-relaxed">Светлый, энергичный мальчик 10 лет с открытым взглядом. Нарядная белая рубашка, винтажный вязаный жилет. Любознательный, горящие глаза.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="char-card double-bezel" data-category="family">
+          <div class="double-bezel-inner flex flex-col h-full">
+            <div class="relative aspect-video bg-black/60 overflow-hidden cursor-pointer group" onclick="openLightbox('assets/images/characters/02_scene1_mom_young_32yo.jpg', 'Молодая мама (~32 года)', 'Естественная русая прическа с челкой 80-х, нежное платье в пастельных тонах. Образ безграничной материнской заботы, тепла и уюта.')">
+              <img src="assets/images/characters/02_scene1_mom_young_32yo.jpg" alt="Молодая мама (~32 года)" class="w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-105" loading="lazy">
+              <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-60"></div>
+              <div class="absolute top-3 left-3">
+                <span class="px-2.5 py-1 rounded-md bg-black/70 backdrop-blur-md text-[10px] font-mono text-amber-400 border border-white/10">1985 год · Сцена 1</span>
+              </div>
+            </div>
+            <div class="p-5 flex-1 flex flex-col justify-between">
+              <div>
+                <h3 class="text-base font-bold text-white font-display mb-1.5">Молодая мама (~32 года)</h3>
+                <p class="text-xs text-gray-400 leading-relaxed">Естественная русая прическа с челкой 80-х, нежное платье в пастельных тонах. Образ безграничной материнской заботы, тепла и уюта.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="char-card double-bezel" data-category="family">
+          <div class="double-bezel-inner flex flex-col h-full">
+            <div class="relative aspect-video bg-black/60 overflow-hidden cursor-pointer group" onclick="openLightbox('assets/images/characters/03_scene1_dad_young_36yo.jpg', 'Молодой папа Бакытжан (~36 лет)', 'Молодой ученый-интеллигент, густые темные волосы без седины, БЕЗ ОЧКОВ. Белая рубашка с расстегнутым воротом. Спокойствие, мудрость и честь.')">
+              <img src="assets/images/characters/03_scene1_dad_young_36yo.jpg" alt="Молодой папа Бакытжан (~36 лет)" class="w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-105" loading="lazy">
+              <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-60"></div>
+              <div class="absolute top-3 left-3">
+                <span class="px-2.5 py-1 rounded-md bg-black/70 backdrop-blur-md text-[10px] font-mono text-amber-400 border border-white/10">1985 год · Сцена 1</span>
+              </div>
+            </div>
+            <div class="p-5 flex-1 flex flex-col justify-between">
+              <div>
+                <h3 class="text-base font-bold text-white font-display mb-1.5">Молодой папа Бакытжан (~36 лет)</h3>
+                <p class="text-xs text-gray-400 leading-relaxed">Молодой ученый-интеллигент, густые темные волосы без седины, БЕЗ ОЧКОВ. Белая рубашка с расстегнутым воротом. Спокойствие, мудрость и честь.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="char-card double-bezel" data-category="family">
+          <div class="double-bezel-inner flex flex-col h-full">
+            <div class="relative aspect-video bg-black/60 overflow-hidden cursor-pointer group" onclick="openLightbox('assets/images/characters/04_scene1_sister_alina_child_6yo.jpg', 'Сестренка Алина в детстве (~6 лет)', 'Очаровательная 6-летняя девочка с белыми праздничными бантами в волосах, голубое платье. Искренняя радость и детский восторг.')">
+              <img src="assets/images/characters/04_scene1_sister_alina_child_6yo.jpg" alt="Сестренка Алина в детстве (~6 лет)" class="w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-105" loading="lazy">
+              <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-60"></div>
+              <div class="absolute top-3 left-3">
+                <span class="px-2.5 py-1 rounded-md bg-black/70 backdrop-blur-md text-[10px] font-mono text-amber-400 border border-white/10">1985 год · Сцена 1</span>
+              </div>
+            </div>
+            <div class="p-5 flex-1 flex flex-col justify-between">
+              <div>
+                <h3 class="text-base font-bold text-white font-display mb-1.5">Сестренка Алина в детстве (~6 лет)</h3>
+                <p class="text-xs text-gray-400 leading-relaxed">Очаровательная 6-летняя девочка с белыми праздничными бантами в волосах, голубое платье. Искренняя радость и детский восторг.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="char-card double-bezel" data-category="ruslan">
+          <div class="double-bezel-inner flex flex-col h-full">
+            <div class="relative aspect-video bg-black/60 overflow-hidden cursor-pointer group" onclick="openLightbox('assets/images/characters/05_scene2_ruslan_youth_19yo.jpg', 'Руслан в юности (~19 лет)', 'Студент университета. Атлетичное телосложение, мужественные черты лица, волевой подбородок. Вязаный свитер 90-х с геометрическим узором.')">
+              <img src="assets/images/characters/05_scene2_ruslan_youth_19yo.jpg" alt="Руслан в юности (~19 лет)" class="w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-105" loading="lazy">
+              <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-60"></div>
+              <div class="absolute top-3 left-3">
+                <span class="px-2.5 py-1 rounded-md bg-black/70 backdrop-blur-md text-[10px] font-mono text-amber-400 border border-white/10">1995 год · Сцена 2</span>
+              </div>
+            </div>
+            <div class="p-5 flex-1 flex flex-col justify-between">
+              <div>
+                <h3 class="text-base font-bold text-white font-display mb-1.5">Руслан в юности (~19 лет)</h3>
+                <p class="text-xs text-gray-400 leading-relaxed">Студент университета. Атлетичное телосложение, мужественные черты лица, волевой подбородок. Вязаный свитер 90-х с геометрическим узором.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="char-card double-bezel" data-category="family">
+          <div class="double-bezel-inner flex flex-col h-full">
+            <div class="relative aspect-video bg-black/60 overflow-hidden cursor-pointer group" onclick="openLightbox('assets/images/characters/06_scene2_dad_mature_48yo.jpg', 'Зрелый папа Бакытжан (~48 лет)', 'Солидный ученый-академик: темно-синий костюм, бордовый галстук, темные волосы по бокам без седины, БЕЗ ОЧКОВ. Отеческая гордость.')">
+              <img src="assets/images/characters/06_scene2_dad_mature_48yo.jpg" alt="Зрелый папа Бакытжан (~48 лет)" class="w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-105" loading="lazy">
+              <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-60"></div>
+              <div class="absolute top-3 left-3">
+                <span class="px-2.5 py-1 rounded-md bg-black/70 backdrop-blur-md text-[10px] font-mono text-amber-400 border border-white/10">1995 год · Сцена 2</span>
+              </div>
+            </div>
+            <div class="p-5 flex-1 flex flex-col justify-between">
+              <div>
+                <h3 class="text-base font-bold text-white font-display mb-1.5">Зрелый папа Бакытжан (~48 лет)</h3>
+                <p class="text-xs text-gray-400 leading-relaxed">Солидный ученый-академик: темно-синий костюм, бордовый галстук, темные волосы по бокам без седины, БЕЗ ОЧКОВ. Отеческая гордость.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="char-card double-bezel" data-category="family">
+          <div class="double-bezel-inner flex flex-col h-full">
+            <div class="relative aspect-video bg-black/60 overflow-hidden cursor-pointer group" onclick="openLightbox('assets/images/characters/07_scene2_mom_mature_44yo.jpg', 'Зрелая мама (~44 года)', 'Элегантная блондинка с объемной салонной укладкой 90-х, изумрудное платье, жемчужное ожерелье. Грация и материнская любовь.')">
+              <img src="assets/images/characters/07_scene2_mom_mature_44yo.jpg" alt="Зрелая мама (~44 года)" class="w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-105" loading="lazy">
+              <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-60"></div>
+              <div class="absolute top-3 left-3">
+                <span class="px-2.5 py-1 rounded-md bg-black/70 backdrop-blur-md text-[10px] font-mono text-amber-400 border border-white/10">1995 год · Сцена 2</span>
+              </div>
+            </div>
+            <div class="p-5 flex-1 flex flex-col justify-between">
+              <div>
+                <h3 class="text-base font-bold text-white font-display mb-1.5">Зрелая мама (~44 года)</h3>
+                <p class="text-xs text-gray-400 leading-relaxed">Элегантная блондинка с объемной салонной укладкой 90-х, изумрудное платье, жемчужное ожерелье. Грация и материнская любовь.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="char-card double-bezel" data-category="family">
+          <div class="double-bezel-inner flex flex-col h-full">
+            <div class="relative aspect-video bg-black/60 overflow-hidden cursor-pointer group" onclick="openLightbox('assets/images/characters/08_scene2_sister_alina_teen_16yo.jpg', 'Сестра Алина — подросток (~16 лет)', '16-летняя девушка со стильной стрижкой 90-х, элегантное платье с воротничком. Теплая поддержка и сестринская привязанность.')">
+              <img src="assets/images/characters/08_scene2_sister_alina_teen_16yo.jpg" alt="Сестра Алина — подросток (~16 лет)" class="w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-105" loading="lazy">
+              <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-60"></div>
+              <div class="absolute top-3 left-3">
+                <span class="px-2.5 py-1 rounded-md bg-black/70 backdrop-blur-md text-[10px] font-mono text-amber-400 border border-white/10">1995 год · Сцена 2</span>
+              </div>
+            </div>
+            <div class="p-5 flex-1 flex flex-col justify-between">
+              <div>
+                <h3 class="text-base font-bold text-white font-display mb-1.5">Сестра Алина — подросток (~16 лет)</h3>
+                <p class="text-xs text-gray-400 leading-relaxed">16-летняя девушка со стильной стрижкой 90-х, элегантное платье с воротничком. Теплая поддержка и сестринская привязанность.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="char-card double-bezel" data-category="ruslan">
+          <div class="double-bezel-inner flex flex-col h-full">
+            <div class="relative aspect-video bg-black/60 overflow-hidden cursor-pointer group" onclick="openLightbox('assets/images/characters/09_scene3_ruslan_navy_officer.jpg', 'Руслан — Офицер флота (~25-28 лет)', 'Офицер «Казмортрансфлота». Белоснежная форменная рубашка со служебными погонами, галстук с золотым зажимом-якорем, фуражка, темные брюки.')">
+              <img src="assets/images/characters/09_scene3_ruslan_navy_officer.jpg" alt="Руслан — Офицер флота (~25-28 лет)" class="w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-105" loading="lazy">
+              <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-60"></div>
+              <div class="absolute top-3 left-3">
+                <span class="px-2.5 py-1 rounded-md bg-black/70 backdrop-blur-md text-[10px] font-mono text-amber-400 border border-white/10">Служба на флоте · Сцена 3</span>
+              </div>
+            </div>
+            <div class="p-5 flex-1 flex flex-col justify-between">
+              <div>
+                <h3 class="text-base font-bold text-white font-display mb-1.5">Руслан — Офицер флота (~25-28 лет)</h3>
+                <p class="text-xs text-gray-400 leading-relaxed">Офицер «Казмортрансфлота». Белоснежная форменная рубашка со служебными погонами, галстук с золотым зажимом-якорем, фуражка, темные брюки.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="char-card double-bezel" data-category="ruslan">
+          <div class="double-bezel-inner flex flex-col h-full">
+            <div class="relative aspect-video bg-black/60 overflow-hidden cursor-pointer group" onclick="openLightbox('assets/images/characters/10_scene4_ruslan_academic_intellect.jpg', 'Руслан — Ученый и Интеллектуал (~32-35 лет)', 'Доктор наук, гроссмейстер и спортсмен. Темно-серый шерстяной блейзер, тонкая черная мериносовая водолазка. Взгляд выдающегося стратега.')">
+              <img src="assets/images/characters/10_scene4_ruslan_academic_intellect.jpg" alt="Руслан — Ученый и Интеллектуал (~32-35 лет)" class="w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-105" loading="lazy">
+              <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-60"></div>
+              <div class="absolute top-3 left-3">
+                <span class="px-2.5 py-1 rounded-md bg-black/70 backdrop-blur-md text-[10px] font-mono text-amber-400 border border-white/10">Наука и спорт · Сцена 4</span>
+              </div>
+            </div>
+            <div class="p-5 flex-1 flex flex-col justify-between">
+              <div>
+                <h3 class="text-base font-bold text-white font-display mb-1.5">Руслан — Ученый и Интеллектуал (~32-35 лет)</h3>
+                <p class="text-xs text-gray-400 leading-relaxed">Доктор наук, гроссмейстер и спортсмен. Темно-серый шерстяной блейзер, тонкая черная мериносовая водолазка. Взгляд выдающегося стратега.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="char-card double-bezel" data-category="ruslan">
+          <div class="double-bezel-inner flex flex-col h-full">
+            <div class="relative aspect-video bg-black/60 overflow-hidden cursor-pointer group" onclick="openLightbox('assets/images/characters/11_scene5_ruslan_father_47yo.jpg', 'Руслан — Любящий отец (~47 лет)', 'Кашемировый джемпер графитового оттенка half-zip, брюки casual. Зрелый, привлекательный мужчина, излучающий теплоту и отеческую силу.')">
+              <img src="assets/images/characters/11_scene5_ruslan_father_47yo.jpg" alt="Руслан — Любящий отец (~47 лет)" class="w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-105" loading="lazy">
+              <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-60"></div>
+              <div class="absolute top-3 left-3">
+                <span class="px-2.5 py-1 rounded-md bg-black/70 backdrop-blur-md text-[10px] font-mono text-amber-400 border border-white/10">Семейный очаг · Сцена 5</span>
+              </div>
+            </div>
+            <div class="p-5 flex-1 flex flex-col justify-between">
+              <div>
+                <h3 class="text-base font-bold text-white font-display mb-1.5">Руслан — Любящий отец (~47 лет)</h3>
+                <p class="text-xs text-gray-400 leading-relaxed">Кашемировый джемпер графитового оттенка half-zip, брюки casual. Зрелый, привлекательный мужчина, излучающий теплоту и отеческую силу.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="char-card double-bezel" data-category="children">
+          <div class="double-bezel-inner flex flex-col h-full">
+            <div class="relative aspect-video bg-black/60 overflow-hidden cursor-pointer group" onclick="openLightbox('assets/images/characters/12_scene5_daughter_eldest_21yo.jpg', 'Старшая дочь (~21 год)', 'Красивая казахская девушка 21 года с мягкими волнистыми волосами, темный топ, бежевые брюки. Гордость и нежная любовь к отцу.')">
+              <img src="assets/images/characters/12_scene5_daughter_eldest_21yo.jpg" alt="Старшая дочь (~21 год)" class="w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-105" loading="lazy">
+              <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-60"></div>
+              <div class="absolute top-3 left-3">
+                <span class="px-2.5 py-1 rounded-md bg-black/70 backdrop-blur-md text-[10px] font-mono text-amber-400 border border-white/10">Семья · Сцена 5</span>
+              </div>
+            </div>
+            <div class="p-5 flex-1 flex flex-col justify-between">
+              <div>
+                <h3 class="text-base font-bold text-white font-display mb-1.5">Старшая дочь (~21 год)</h3>
+                <p class="text-xs text-gray-400 leading-relaxed">Красивая казахская девушка 21 года с мягкими волнистыми волосами, темный топ, бежевые брюки. Гордость и нежная любовь к отцу.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="char-card double-bezel" data-category="children">
+          <div class="double-bezel-inner flex flex-col h-full">
+            <div class="relative aspect-video bg-black/60 overflow-hidden cursor-pointer group" onclick="openLightbox('assets/images/characters/13_scene5_son_eldest_19yo.jpg', 'Старший сын (~19 лет)', 'Студент: короткая стрижка buzz-cut, тонкие прямоугольные очки, черный бомбер. Интеллектуальный, увлеченный беседой с отцом.')">
+              <img src="assets/images/characters/13_scene5_son_eldest_19yo.jpg" alt="Старший сын (~19 лет)" class="w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-105" loading="lazy">
+              <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-60"></div>
+              <div class="absolute top-3 left-3">
+                <span class="px-2.5 py-1 rounded-md bg-black/70 backdrop-blur-md text-[10px] font-mono text-amber-400 border border-white/10">Семья · Сцена 5</span>
+              </div>
+            </div>
+            <div class="p-5 flex-1 flex flex-col justify-between">
+              <div>
+                <h3 class="text-base font-bold text-white font-display mb-1.5">Старший сын (~19 лет)</h3>
+                <p class="text-xs text-gray-400 leading-relaxed">Студент: короткая стрижка buzz-cut, тонкие прямоугольные очки, черный бомбер. Интеллектуальный, увлеченный беседой с отцом.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="char-card double-bezel" data-category="children">
+          <div class="double-bezel-inner flex flex-col h-full">
+            <div class="relative aspect-video bg-black/60 overflow-hidden cursor-pointer group" onclick="openLightbox('assets/images/characters/14_scene5_son_youngest_11yo.jpg', 'Младший сын (~11 лет)', 'Спортивный мальчик 11 лет в сине-сером худи с капюшоном. Обаятельная озорная улыбка, искренняя привязанность к папе.')">
+              <img src="assets/images/characters/14_scene5_son_youngest_11yo.jpg" alt="Младший сын (~11 лет)" class="w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-105" loading="lazy">
+              <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-60"></div>
+              <div class="absolute top-3 left-3">
+                <span class="px-2.5 py-1 rounded-md bg-black/70 backdrop-blur-md text-[10px] font-mono text-amber-400 border border-white/10">Семья · Сцена 5</span>
+              </div>
+            </div>
+            <div class="p-5 flex-1 flex flex-col justify-between">
+              <div>
+                <h3 class="text-base font-bold text-white font-display mb-1.5">Младший сын (~11 лет)</h3>
+                <p class="text-xs text-gray-400 leading-relaxed">Спортивный мальчик 11 лет в сине-сером худи с капюшоном. Обаятельная озорная улыбка, искренняя привязанность к папе.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="char-card double-bezel" data-category="ruslan">
+          <div class="double-bezel-inner flex flex-col h-full">
+            <div class="relative aspect-video bg-black/60 overflow-hidden cursor-pointer group" onclick="openLightbox('assets/images/characters/15_scene6_ruslan_executive_leader.jpg', 'Руслан — Лидер индустрии (51 год)', 'Руководитель масштабных проектов индустрии. Безупречный темно-синий костюм, белая сорочка, шелковый галстук. Мудрость, величие и созидание.')">
+              <img src="assets/images/characters/15_scene6_ruslan_executive_leader.jpg" alt="Руслан — Лидер индустрии (51 год)" class="w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-105" loading="lazy">
+              <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-60"></div>
+              <div class="absolute top-3 left-3">
+                <span class="px-2.5 py-1 rounded-md bg-black/70 backdrop-blur-md text-[10px] font-mono text-amber-400 border border-white/10">Настоящее время · Сцена 6</span>
+              </div>
+            </div>
+            <div class="p-5 flex-1 flex flex-col justify-between">
+              <div>
+                <h3 class="text-base font-bold text-white font-display mb-1.5">Руслан — Лидер индустрии (51 год)</h3>
+                <p class="text-xs text-gray-400 leading-relaxed">Руководитель масштабных проектов индустрии. Безупречный темно-синий костюм, белая сорочка, шелковый галстук. Мудрость, величие и созидание.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ========================================================================= -->
+    <!-- 6. ENVIRONMENTS (6 LOCKED ARCHITECTURAL BACKGROUND PLATES)                 -->
+    <!-- ========================================================================= -->
+    <section id="environments" class="py-16 px-4 max-w-7xl mx-auto">
+      <div class="mb-10 text-center">
+        <span class="text-xs uppercase tracking-[0.25em] text-amber-400 font-semibold">Архитектурные фоновые плейты</span>
+        <h2 class="text-3xl sm:text-4xl font-bold font-display text-white mt-2">Локации и Пространство (6 сред)</h2>
+        <p class="text-sm text-gray-400 mt-2 max-w-2xl mx-auto">Чистые интерьеры и пейзажи без персонажей, фиксирующие ракурсы, мебель, свет и атмосферу эпох</p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+
+        <div class="double-bezel">
+          <div class="double-bezel-inner flex flex-col h-full">
+            <div class="relative aspect-video bg-black/60 overflow-hidden cursor-pointer group" onclick="openLightbox('assets/images/environments/01_scene1_childhood_kitchen_dining.jpg', 'Сцена 01 // Кухня алматинской квартиры (1985 г.)', 'Теплая залитая солнцем кухня алматинской квартиры на 3-м этаже. Самовар, праздничный торт, осенний ноябрь за окном, вид на золотые кроны и снежные вершины Заилийского Алатау.')">
+              <img src="assets/images/environments/01_scene1_childhood_kitchen_dining.jpg" alt="Кухня алматинской квартиры (1985 г.)" class="w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-105" loading="lazy">
+              <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-60"></div>
+              <div class="absolute top-3 left-3">
+                <span class="px-2.5 py-1 rounded-md bg-black/70 backdrop-blur-md text-[10px] font-mono text-amber-400 border border-white/10">Сцена 01</span>
+              </div>
+            </div>
+            <div class="p-5 flex-1 flex flex-col justify-between">
+              <div>
+                <h3 class="text-base font-bold text-white font-display mb-1.5">Кухня алматинской квартиры (1985 г.)</h3>
+                <p class="text-xs text-gray-400 leading-relaxed">Теплая залитая солнцем кухня алматинской квартиры на 3-м этаже. Самовар, праздничный торт, осенний ноябрь за окном, вид на золотые кроны и снежные вершины Заилийского Алатау.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="double-bezel">
+          <div class="double-bezel-inner flex flex-col h-full">
+            <div class="relative aspect-video bg-black/60 overflow-hidden cursor-pointer group" onclick="openLightbox('assets/images/environments/02_scene2_youth_family_hall.jpg', 'Сцена 02 // Семейный зал интеллигенции (1995 г.)', 'Уютный алматинский «Зал» 90-х: полированная ореховая стенка с сервизом и книгами, торшер с бахромой, раздвижной стол, ковер. Атмосфера академической семьи и родительского благословения.')">
+              <img src="assets/images/environments/02_scene2_youth_family_hall.jpg" alt="Семейный зал интеллигенции (1995 г.)" class="w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-105" loading="lazy">
+              <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-60"></div>
+              <div class="absolute top-3 left-3">
+                <span class="px-2.5 py-1 rounded-md bg-black/70 backdrop-blur-md text-[10px] font-mono text-amber-400 border border-white/10">Сцена 02</span>
+              </div>
+            </div>
+            <div class="p-5 flex-1 flex flex-col justify-between">
+              <div>
+                <h3 class="text-base font-bold text-white font-display mb-1.5">Семейный зал интеллигенции (1995 г.)</h3>
+                <p class="text-xs text-gray-400 leading-relaxed">Уютный алматинский «Зал» 90-х: полированная ореховая стенка с сервизом и книгами, торшер с бахромой, раздвижной стол, ковер. Атмосфера академической семьи и родительского благословения.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="double-bezel">
+          <div class="double-bezel-inner flex flex-col h-full">
+            <div class="relative aspect-video bg-black/60 overflow-hidden cursor-pointer group" onclick="openLightbox('assets/images/environments/03_scene3_naval_ship_bridge.jpg', 'Сцена 03 // Палуба судна «Казмортрансфлот»', 'Открытая тиковая палуба морского судна на Каспийском море. Белые леера, латунная фурнитура, золотой рассвет над морской гладью и бескрайние просторы горизонта.')">
+              <img src="assets/images/environments/03_scene3_naval_ship_bridge.jpg" alt="Палуба судна «Казмортрансфлот»" class="w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-105" loading="lazy">
+              <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-60"></div>
+              <div class="absolute top-3 left-3">
+                <span class="px-2.5 py-1 rounded-md bg-black/70 backdrop-blur-md text-[10px] font-mono text-amber-400 border border-white/10">Сцена 03</span>
+              </div>
+            </div>
+            <div class="p-5 flex-1 flex flex-col justify-between">
+              <div>
+                <h3 class="text-base font-bold text-white font-display mb-1.5">Палуба судна «Казмортрансфлот»</h3>
+                <p class="text-xs text-gray-400 leading-relaxed">Открытая тиковая палуба морского судна на Каспийском море. Белые леера, латунная фурнитура, золотой рассвет над морской гладью и бескрайние просторы горизонта.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="double-bezel">
+          <div class="double-bezel-inner flex flex-col h-full">
+            <div class="relative aspect-video bg-black/60 overflow-hidden cursor-pointer group" onclick="openLightbox('assets/images/environments/04_scene4_intellect_sports_study.jpg', 'Сцена 04 // Кабинет ученого и гроссмейстера', 'Современный кабинет стратега: деревянный шахматный столик с доской 8×8, диплом доктора наук в золотой раме, подсвеченные ниши с кубками и чемпионским поясом, вид на предгорья.')">
+              <img src="assets/images/environments/04_scene4_intellect_sports_study.jpg" alt="Кабинет ученого и гроссмейстера" class="w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-105" loading="lazy">
+              <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-60"></div>
+              <div class="absolute top-3 left-3">
+                <span class="px-2.5 py-1 rounded-md bg-black/70 backdrop-blur-md text-[10px] font-mono text-amber-400 border border-white/10">Сцена 04</span>
+              </div>
+            </div>
+            <div class="p-5 flex-1 flex flex-col justify-between">
+              <div>
+                <h3 class="text-base font-bold text-white font-display mb-1.5">Кабинет ученого и гроссмейстера</h3>
+                <p class="text-xs text-gray-400 leading-relaxed">Современный кабинет стратега: деревянный шахматный столик с доской 8×8, диплом доктора наук в золотой раме, подсвеченные ниши с кубками и чемпионским поясом, вид на предгорья.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="double-bezel">
+          <div class="double-bezel-inner flex flex-col h-full">
+            <div class="relative aspect-video bg-black/60 overflow-hidden cursor-pointer group" onclick="openLightbox('assets/images/environments/05_scene5_almaty_green_park.jpg', 'Сцена 05 // Променад Терренкур / Медеу на закате', 'Величественная природа Алматы: каменная мостовая, вековые тянь-шанские ели, горная речка с гранитными валунами, чугунные фонари и пики Алатау в розово-золотом закатном альпенглоу.')">
+              <img src="assets/images/environments/05_scene5_almaty_green_park.jpg" alt="Променад Терренкур / Медеу на закате" class="w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-105" loading="lazy">
+              <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-60"></div>
+              <div class="absolute top-3 left-3">
+                <span class="px-2.5 py-1 rounded-md bg-black/70 backdrop-blur-md text-[10px] font-mono text-amber-400 border border-white/10">Сцена 05</span>
+              </div>
+            </div>
+            <div class="p-5 flex-1 flex flex-col justify-between">
+              <div>
+                <h3 class="text-base font-bold text-white font-display mb-1.5">Променад Терренкур / Медеу на закате</h3>
+                <p class="text-xs text-gray-400 leading-relaxed">Величественная природа Алматы: каменная мостовая, вековые тянь-шанские ели, горная речка с гранитными валунами, чугунные фонари и пики Алатау в розово-золотом закатном альпенглоу.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="double-bezel">
+          <div class="double-bezel-inner flex flex-col h-full">
+            <div class="relative aspect-video bg-black/60 overflow-hidden cursor-pointer group" onclick="openLightbox('assets/images/environments/06_scene6_executive_observation_gallery.jpg', 'Сцена 06 // Кабинет первого руководителя на производстве', 'Престижный офис главы предприятия: монументальный Т-образный стол из темного ореха, на стене — светящаяся ТВ-карта Казахстана, под ней 3D-макет недр, за панорамным стеклом — гигантский ступенчатый карьер в лучах заката.')">
+              <img src="assets/images/environments/06_scene6_executive_observation_gallery.jpg" alt="Кабинет первого руководителя на производстве" class="w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-105" loading="lazy">
+              <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-60"></div>
+              <div class="absolute top-3 left-3">
+                <span class="px-2.5 py-1 rounded-md bg-black/70 backdrop-blur-md text-[10px] font-mono text-amber-400 border border-white/10">Сцена 06</span>
+              </div>
+            </div>
+            <div class="p-5 flex-1 flex flex-col justify-between">
+              <div>
+                <h3 class="text-base font-bold text-white font-display mb-1.5">Кабинет первого руководителя на производстве</h3>
+                <p class="text-xs text-gray-400 leading-relaxed">Престижный офис главы предприятия: монументальный Т-образный стол из темного ореха, на стене — светящаяся ТВ-карта Казахстана, под ней 3D-макет недр, за панорамным стеклом — гигантский ступенчатый карьер в лучах заката.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ========================================================================= -->
+    <!-- 7. FILM 2: «ВЕСНА, КОТОРАЯ ИЗМЕНИЛА ВСЁ»                                  -->
+    <!-- ========================================================================= -->
+    <section id="film2" class="py-16 px-4 max-w-5xl mx-auto">
+      <div class="double-bezel">
+        <div class="double-bezel-inner p-8 sm:p-12">
+          <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-rose-500/10 border border-rose-500/20 text-rose-400 text-xs font-semibold mb-4">
+            ВТОРОЙ ФИЛЬМ ПРОЕКТА // 45 СЕКУНД
+          </div>
+          <h2 class="text-3xl sm:text-4xl font-extrabold font-display text-white mb-4">
+            Фильм 2: «Весна, которая изменила всё»
+          </h2>
+          <p class="text-sm text-gray-300 leading-relaxed mb-6 font-light">
+            Лирическая романтическая анимационная новелла о судьбоносной встрече Руслана и Айгерим в цветущей весенней Алма-Ате. Фильм строится на контрасте: сильный, сосредоточенный лидер индустрии встречает свою вдохновительницу, и его мир наполняется теплом, улыбкой и весенним светом.
+          </p>
+
+          <div class="p-5 rounded-2xl bg-white/5 border border-white/5 mb-8">
+            <div class="text-[11px] uppercase tracking-wider text-rose-400 font-bold mb-2 flex items-center gap-2">
+              <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 11a7 7 0 01-7 7m0 0a7 7 0 01-7-7m7 7v4m0 0H8m4 0h4m-4-8a3 3 0 100-6 3 3 0 000 6z"/>
+              </svg>
+              Текст диктора Фильма 2 (Черновой драфт)
+            </div>
+            <p class="text-xs text-rose-100 font-medium italic leading-relaxed">
+              «В жизни сильного мужчины бывает момент, когда одно мгновение меняет весь мир. Весенняя Алма-Ата, аромат яблоневого цвета и взгляд, в котором соединились нежность, поддержка и дом. Айгерим стала той весной, которая расцветает в сердце навсегда. С днем рождения, любимый!»
+            </p>
+          </div>
+
+          <div class="flex flex-wrap gap-4 items-center">
+            <a href="downloads/FILM2_PRODUCTION_PACKAGE_REPORT.pdf" target="_blank" class="px-6 py-3 rounded-full bg-rose-500 hover:bg-rose-600 text-white font-medium text-xs tracking-wider transition-all flex items-center gap-2">
+              <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/>
+              </svg>
+              Открыть PDF концепта Фильма 2 (3.1 MB)
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========================================================================= -->
+    <!-- 8. DOWNLOADS VAULT                                                        -->
+    <!-- ========================================================================= -->
+    <section id="downloads" class="py-16 px-4 max-w-5xl mx-auto">
+      <div class="mb-10 text-center">
+        <span class="text-xs uppercase tracking-[0.25em] text-amber-400 font-semibold">Архив документов</span>
+        <h2 class="text-3xl sm:text-4xl font-bold font-display text-white mt-2">Официальные отчёты Jel Labs</h2>
+        <p class="text-sm text-gray-400 mt-2">Все чистовые материалы подготовлены в швейцарской верстке 16:9 для презентации</p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+        <a href="downloads/FILM1_STORYBOARD_REPORT.pdf" target="_blank" class="double-bezel group hover:border-amber-500/30 transition-all">
+          <div class="double-bezel-inner p-5 flex items-center justify-between">
+            <div class="flex items-center gap-4">
+              <div class="w-10 h-10 rounded-xl bg-amber-500/10 border border-amber-500/20 flex items-center justify-center text-amber-400 font-mono font-bold text-xs">
+                PDF
+              </div>
+              <div>
+                <div class="text-sm font-bold text-white group-hover:text-amber-300 transition-colors">Сториборд Фильма 1 (8 слайдов)</div>
+                <div class="text-[11px] text-gray-400">12 шотов 2K · Режиссура · Оптика · 2.88 MB</div>
+              </div>
+            </div>
+            <span class="text-amber-400 text-sm font-semibold group-hover:translate-x-1 transition-transform">↓</span>
+          </div>
+        </a>
+
+        <a href="downloads/FILM1_DIRECTORS_CHRONOLOGY_REPORT.pdf" target="_blank" class="double-bezel group hover:border-amber-500/30 transition-all">
+          <div class="double-bezel-inner p-5 flex items-center justify-between">
+            <div class="flex items-center gap-4">
+              <div class="w-10 h-10 rounded-xl bg-amber-500/10 border border-amber-500/20 flex items-center justify-center text-amber-400 font-mono font-bold text-xs">
+                PDF
+              </div>
+              <div>
+                <div class="text-sm font-bold text-white group-hover:text-amber-300 transition-colors">Хронология и Режиссура Фильма 1</div>
+                <div class="text-[11px] text-gray-400">Сравнение референсов и персонажей · 3.0 MB</div>
+              </div>
+            </div>
+            <span class="text-amber-400 text-sm font-semibold group-hover:translate-x-1 transition-transform">↓</span>
+          </div>
+        </a>
+
+        <a href="downloads/FILM1_ENVIRONMENTS_COMPARISON_REPORT.pdf" target="_blank" class="double-bezel group hover:border-amber-500/30 transition-all">
+          <div class="double-bezel-inner p-5 flex items-center justify-between">
+            <div class="flex items-center gap-4">
+              <div class="w-10 h-10 rounded-xl bg-amber-500/10 border border-amber-500/20 flex items-center justify-center text-amber-400 font-mono font-bold text-xs">
+                PDF
+              </div>
+              <div>
+                <div class="text-sm font-bold text-white group-hover:text-amber-300 transition-colors">Каталог Локаций и Окружения</div>
+                <div class="text-[11px] text-gray-400">6 чистых архитектурных плейтов · 3.0 MB</div>
+              </div>
+            </div>
+            <span class="text-amber-400 text-sm font-semibold group-hover:translate-x-1 transition-transform">↓</span>
+          </div>
+        </a>
+
+        <a href="downloads/FILM1_PRODUCTION_PACKAGE_REPORT.pdf" target="_blank" class="double-bezel group hover:border-amber-500/30 transition-all">
+          <div class="double-bezel-inner p-5 flex items-center justify-between">
+            <div class="flex items-center gap-4">
+              <div class="w-10 h-10 rounded-xl bg-amber-500/10 border border-amber-500/20 flex items-center justify-center text-amber-400 font-mono font-bold text-xs">
+                PDF
+              </div>
+              <div>
+                <div class="text-sm font-bold text-white group-hover:text-amber-300 transition-colors">Производственный пакет Фильма 1</div>
+                <div class="text-[11px] text-gray-400">Полные модельные листы персонажей · 3.4 MB</div>
+              </div>
+            </div>
+            <span class="text-amber-400 text-sm font-semibold group-hover:translate-x-1 transition-transform">↓</span>
+          </div>
+        </a>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="py-12 px-4 border-t border-white/5 text-center text-xs text-gray-500">
+      <div class="flex items-center justify-center gap-2 mb-3">
+        <img src="assets/images/jel_labs_logo.png" alt="Jel Labs" class="h-5 w-auto object-contain opacity-60">
+        <span>×</span>
+        <span class="font-semibold text-gray-400 tracking-wider">26STUDIO</span>
+      </div>
+      <p class="mb-1">Конфиденциальный клиентский просмотр. Создано специально для Айгерим.</p>
+      <p class="text-[10px] text-gray-600">Алматы, Казахстан · Ноябрь 2026 г. · Все права защищены</p>
+    </footer>
+
+  </div>
+
+  <!-- ========================================================================= -->
+  <!-- 9. LIGHTBOX MODAL                                                         -->
+  <!-- ========================================================================= -->
+  <div id="lightboxModal" class="fixed inset-0 z-50 hidden bg-black/95 backdrop-blur-2xl flex items-center justify-center p-4">
+    <button onclick="closeLightbox()" class="absolute top-6 right-6 p-3 rounded-full bg-white/10 hover:bg-white/20 text-white transition-colors">
+      <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/>
+      </svg>
+    </button>
+    <div class="max-w-6xl w-full text-center">
+      <img id="lightboxImg" src="" alt="Enlarged" class="max-h-[80vh] w-auto mx-auto rounded-2xl shadow-2xl object-contain border border-white/10 mb-4">
+      <h3 id="lightboxTitle" class="text-lg font-bold font-display text-white mb-1"></h3>
+      <p id="lightboxDesc" class="text-xs text-gray-400 max-w-2xl mx-auto italic"></p>
+    </div>
+  </div>
+
+  <!-- ========================================================================= -->
+  <!-- 10. JAVASCRIPT LOGIC                                                      -->
+  <!-- ========================================================================= -->
+  <script>
+    const CORRECT_PIN = "1411";
+    let currentPin = "";
+
+    // Check URL parameters for magic link bypass
+    function checkMagicAuth() {
+      const urlParams = new URLSearchParams(window.location.search);
+      const pass = urlParams.get('pass') || urlParams.get('key') || urlParams.get('auth');
+      if (pass === CORRECT_PIN || pass === 'jel' || pass === 'jel2026') {
+        unlockPortal();
+        return true;
+      }
+      if (localStorage.getItem('jel_ruslan_auth') === 'unlocked') {
+        unlockPortal();
+        return true;
+      }
+      return false;
+    }
+
+    function pressKey(num) {
+      if (currentPin.length < 4) {
+        currentPin += num;
+        updateDots();
+        if (currentPin.length === 4) {
+          setTimeout(verifyPin, 150);
+        }
+      }
+    }
+
+    function backspacePin() {
+      if (currentPin.length > 0) {
+        currentPin = currentPin.slice(0, -1);
+        updateDots();
+      }
+    }
+
+    function clearPin() {
+      currentPin = "";
+      updateDots();
+      document.getElementById('gateError').classList.add('opacity-0');
+    }
+
+    function updateDots() {
+      for (let i = 0; i < 4; i++) {
+        const dot = document.getElementById('dot' + i);
+        if (i < currentPin.length) {
+          dot.classList.add('bg-amber-400', 'border-amber-400', 'scale-110');
+          dot.classList.remove('border-white/20');
+        } else {
+          dot.classList.remove('bg-amber-400', 'border-amber-400', 'scale-110');
+          dot.classList.add('border-white/20');
+        }
+      }
+    }
+
+    function verifyPin() {
+      if (currentPin === CORRECT_PIN) {
+        localStorage.setItem('jel_ruslan_auth', 'unlocked');
+        unlockPortal();
+      } else {
+        const card = document.getElementById('gateCard');
+        card.classList.add('shake');
+        document.getElementById('gateError').classList.remove('opacity-0');
+        setTimeout(() => {
+          card.classList.remove('shake');
+          clearPin();
+        }, 500);
+      }
+    }
+
+    function unlockPortal() {
+      const gate = document.getElementById('gateOverlay');
+      const app = document.getElementById('appContainer');
+      gate.classList.add('opacity-0', 'pointer-events-none');
+      app.classList.remove('opacity-0');
+      setTimeout(() => {
+        gate.style.display = 'none';
+      }, 500);
+    }
+
+    function lockPortal() {
+      localStorage.removeItem('jel_ruslan_auth');
+      location.reload();
+    }
+
+    // Storyboard Filters
+    function filterScene(scene) {
+      const cards = document.querySelectorAll('.storyboard-card');
+      const btns = document.querySelectorAll('.scene-filter-btn');
+
+      btns.forEach(b => {
+        if (b.dataset.scene == scene) {
+          b.classList.add('bg-amber-500', 'text-black', 'font-semibold');
+          b.classList.remove('bg-white/5', 'text-gray-300');
+        } else {
+          b.classList.remove('bg-amber-500', 'text-black', 'font-semibold');
+          b.classList.add('bg-white/5', 'text-gray-300');
+        }
+      });
+
+      cards.forEach(c => {
+        if (scene === 'all' || c.dataset.scene == scene) {
+          c.style.display = 'block';
+        } else {
+          c.style.display = 'none';
+        }
+      });
+    }
+
+    // Character Filters
+    function filterChar(category) {
+      const cards = document.querySelectorAll('.char-card');
+      const btns = document.querySelectorAll('.char-filter-btn');
+
+      btns.forEach(b => {
+        if (b.dataset.category == category) {
+          b.classList.add('bg-amber-500', 'text-black', 'font-semibold');
+          b.classList.remove('bg-white/5', 'text-gray-300');
+        } else {
+          b.classList.remove('bg-amber-500', 'text-black', 'font-semibold');
+          b.classList.add('bg-white/5', 'text-gray-300');
+        }
+      });
+
+      cards.forEach(c => {
+        if (category === 'all' || c.dataset.category == category) {
+          c.style.display = 'block';
+        } else {
+          c.style.display = 'none';
+        }
+      });
+    }
+
+    // Smooth scroll to shot
+    function scrollToShot(shotId) {
+      filterScene('all');
+      const el = document.getElementById('shot-' + shotId);
+      if (el) {
+        el.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        el.classList.add('ring-2', 'ring-amber-400');
+        setTimeout(() => {
+          el.classList.remove('ring-2', 'ring-amber-400');
+        }, 2000);
+      }
+    }
+
+    // Lightbox Modal
+    function openLightbox(src, title, desc) {
+      const modal = document.getElementById('lightboxModal');
+      document.getElementById('lightboxImg').src = src;
+      document.getElementById('lightboxTitle').textContent = title;
+      document.getElementById('lightboxDesc').textContent = desc;
+      modal.classList.remove('hidden');
+    }
+
+    function closeLightbox() {
+      document.getElementById('lightboxModal').classList.add('hidden');
+    }
+
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape') closeLightbox();
+    });
+
+    window.addEventListener('DOMContentLoaded', () => {
+      checkMagicAuth();
+    });
+  </script>
+</body>
+</html>
