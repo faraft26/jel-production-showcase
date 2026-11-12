@@ -5,6 +5,23 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="robots" content="noindex, nofollow, noarchive, nosnippet">
   <meta name="googlebot" content="noindex, nofollow">
+  <script>
+    (function() {
+      var isLocal = window.location.protocol === 'file:' || window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1';
+      var params = new URLSearchParams(window.location.search);
+      var key = params.get('access') || params.get('key') || params.get('token');
+      var validKeys = ['jel26', 'jel_ruslan_2026', '1411', 'jel'];
+      var hasValidKey = key && validKeys.indexOf(key) !== -1;
+      var isStored = localStorage.getItem('jel_auth_access') === 'granted';
+
+      if (isLocal || hasValidKey || isStored) {
+        if (hasValidKey) localStorage.setItem('jel_auth_access', 'granted');
+      } else {
+        document.write('<title>404 Not Found</title><style>body{background:#fff;color:#1d1d1f;font-family:-apple-system,sans-serif;display:flex;align-items:center;justify-content:center;height:100vh;margin:0;}</style><div><h2 style="font-weight:600;margin-bottom:8px;">404 Not Found</h2><p style="color:#86868b;font-size:14px;">The requested URL was not found on this server.</p></div>');
+        window.stop && window.stop();
+      }
+    })();
+  </script>
   <title>РУСЛАН — 51 · Кинопроект ко Дню Рождения | Jel Labs × 26Studio</title>
   <style>
     *, *::before, *::after {
