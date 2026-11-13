@@ -691,10 +691,12 @@
         <a href="#film2" class="nav-link" style="color: var(--accent); font-weight: 600;">Фильм 2 (Love Story)</a>
         <a href="#downloads" class="nav-link">Архив PDF</a>
         <a href="downloads/FILM1_STORYBOARD_REPORT.pdf" target="_blank" class="nav-btn-pdf">PDF Фильма 1</a>
+        <a href="premiere/" class="nav-btn-pdf access-link" style="background: var(--accent); color: #FFF; font-weight: 600;">Готовые видео</a>
       </nav>
 
       <!-- Mobile Right Quick Nav Buttons -->
       <div class="mobile-header-right">
+        <a href="premiere/" class="nav-btn-pdf access-link" style="background: var(--accent); color: #FFF; font-weight: 600;">Видео</a>
         <a href="#film2" class="nav-btn-pdf" style="background: var(--text-primary); color: #FFF; font-weight: 600;">Фильм 2</a>
         <a href="#downloads" class="nav-btn-pdf">PDF</a>
       </div>
@@ -718,6 +720,12 @@
           <span class="status-dot"></span>
           ПРОДАКШН: ЭТАП СТОРИБОРДОВ (ГОТОВО К УТВЕРЖДЕНИЮ)
         </span>
+      </div>
+      <div style="margin-top: 18px;">
+        <a href="premiere/" class="access-link" style="display: inline-flex; align-items: center; gap: 8px; padding: 11px 22px; border-radius: 980px; background: var(--accent); color: #FFFFFF; font-size: 14px; font-weight: 600; text-decoration: none; box-shadow: 0 4px 14px rgba(0, 113, 227, 0.25);">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><polygon points="6 4 20 12 6 20 6 4"/></svg>
+          Смотреть и скачать готовые фильмы (3 версии) →
+        </a>
       </div>
     </section>
 
@@ -1801,7 +1809,7 @@
         <strong>Jel Labs × 26Studio</strong> · Закрытый авторский проект ко Дню Рождения Руслана (51 год).
       </div>
       <div>
-        Конфиденциально · Доступ по персональному ключу
+        Конфиденциально · Доступ по персональному ключу · <a href="premiere/" class="access-link" style="color: var(--accent); text-decoration: none; font-weight: 500;">Премьерный показ (Видео) →</a>
       </div>
     </div>
   </footer>
@@ -2128,6 +2136,20 @@
         closeLightbox();
       }
     }
+  </script>
+  <script>
+    (function() {
+      var isLocal = window.location.protocol === 'file:' || window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1';
+      var query = window.location.search || (isLocal ? '' : '?access=jel_ruslan_2026');
+      if (query) {
+        document.querySelectorAll('a.access-link').forEach(function(el) {
+          var href = el.getAttribute('href');
+          if (href && href.indexOf('?') === -1) {
+            el.setAttribute('href', href + query);
+          }
+        });
+      }
+    })();
   </script>
 </body>
 </html>
